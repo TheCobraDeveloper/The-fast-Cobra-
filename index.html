@@ -4,701 +4,532 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080b12">
-<meta name="description" content="FAST COBRA Downloader — a modern, mobile-friendly video download interface.">
-<title>FAST COBRA — Video Downloader</title>
+<meta name="theme-color" content="#080808">
+<meta name="description" content="The Fast Cobra Downloader - Video and audio downloader.">
+<title>The Fast Cobra Downloader | Premium</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --bg:#070a10;
-  --panel:#101722;
-  --panel2:#151e2c;
-  --gold:#ffc247;
-  --orange:#ff791d;
-  --text:#f7f8fc;
-  --muted:#9aa9bd;
-  --border:#283549;
-  --green:#39df9a;
-  --red:#ff6474;
+ --gold:#e6b84f;
+ --gold2:#ffdf88;
+ --bg:#080808;
+ --panel:#141414;
+ --muted:#999;
+ --green:#36d68a;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
 body{
-  background:
-    radial-gradient(ellipse at 50% -15%,#50320f 0%,transparent 40%),
-    radial-gradient(ellipse at 100% 50%,#142035 0%,transparent 40%),
-    var(--bg);
-  color:var(--text);
-  font-family:Arial,Helvetica,sans-serif;
-  min-height:100vh;
+ background:var(--bg);
+ color:#fff;
+ font-family:Inter,Arial,sans-serif;
+ min-height:100vh;
 }
-button,input{font:inherit}
-button{touch-action:manipulation}
-a{color:inherit}
-.wrap{width:min(940px,100% - 28px);margin:auto}
-.topbar{
-  display:flex;justify-content:space-between;align-items:center;
-  gap:12px;padding:17px 0;border-bottom:1px solid #ffffff10;
+button,input,select{font:inherit}
+button{cursor:pointer}
+header{
+ height:76px;
+ padding:0 6%;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ border-bottom:1px solid #332819;
+ background:#0c0c0c;
+ position:sticky;top:0;z-index:10;
 }
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
-.brand-icon{
-  width:43px;height:43px;border-radius:14px;
-  display:grid;place-items:center;font-size:25px;
-  background:linear-gradient(140deg,#ffe38b,#ff8c20);
-  box-shadow:0 0 25px #ffae2630;
+.brand{
+ display:flex;align-items:center;gap:12px;
 }
-.brand-name{font-size:17px;font-weight:950;letter-spacing:1px}
-.brand-name span{color:var(--gold)}
-.brand-sub{font-size:10px;color:var(--muted);margin-top:3px;letter-spacing:2px}
-.secure{
-  color:var(--green);font-size:11px;font-weight:bold;
-  border:1px solid #39df9a35;background:#39df9a0c;
-  padding:8px 10px;border-radius:30px;
+.logo{
+ width:45px;height:45px;border-radius:50%;
+ display:grid;place-items:center;
+ border:2px solid var(--gold);
+ color:var(--gold);
+ font-size:25px;
+ box-shadow:0 0 16px #d5a33b44;
 }
-.hero{text-align:center;padding:38px 0 25px}
-.cobra-art{
-  width:92px;height:92px;margin:0 auto 18px;border-radius:30px;
-  display:grid;place-items:center;font-size:53px;
-  background:linear-gradient(145deg,#ffdf77,#ff841d 75%);
-  box-shadow:0 0 60px #ff9c2230,inset 0 2px 2px #ffffff65;
-  animation:float 3.5s ease-in-out infinite;
+.brand h2{
+ font-family:Orbitron,sans-serif;
+ font-size:15px;color:var(--gold);
 }
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.brand small{color:#999;font-size:9px;letter-spacing:2px}
+.status{
+ border:1px solid #315a43;
+ color:var(--green);
+ padding:8px 12px;border-radius:30px;
+ font-size:11px;
+}
+main{max-width:900px;margin:auto;padding:35px 18px 60px}
+.hero{text-align:center;padding:25px 0 30px}
+.cobra{
+ font-size:72px;
+ filter:drop-shadow(0 0 17px #e6b84f66);
+ animation:float 3s ease-in-out infinite;
+}
+@keyframes float{
+ 0%,100%{transform:translateY(0)}
+ 50%{transform:translateY(-9px)}
+}
 .hero h1{
-  font-size:clamp(34px,8vw,58px);font-weight:1000;
-  line-height:1.08;letter-spacing:-1.8px;
+ font-family:Orbitron,sans-serif;
+ font-size:clamp(25px,6vw,43px);
+ letter-spacing:2px;
+ color:var(--gold);
+ margin:15px 0 10px;
 }
-.hero h1 span{
-  color:var(--gold);
-  text-shadow:0 0 35px #ffbd3540;
+.hero p{color:#aaa;font-size:14px;line-height:1.7}
+.goldline{
+ height:2px;width:90px;margin:18px auto;
+ background:linear-gradient(90deg,transparent,var(--gold),transparent);
 }
-.hero p{
-  color:var(--muted);font-size:14px;line-height:1.8;
-  max-width:490px;margin:13px auto 0;
+.downloader{
+ background:linear-gradient(145deg,#191919,#101010);
+ border:1px solid #44351f;
+ border-radius:20px;
+ padding:25px;
+ box-shadow:0 15px 50px #0009;
 }
-.pills{
-  display:flex;flex-wrap:wrap;justify-content:center;
-  gap:8px;margin-top:18px;
+.section-title{
+ color:var(--gold2);
+ font-weight:700;
+ font-size:16px;
+ margin-bottom:16px;
 }
-.pill{
-  border:1px solid var(--border);background:#ffffff05;
-  color:#c6d1df;padding:8px 11px;border-radius:30px;font-size:11px;
+.input-wrap{position:relative}
+.input-wrap input{
+ width:100%;
+ padding:17px 15px;
+ border-radius:11px;
+ border:1px solid #51432b;
+ background:#090909;color:#fff;
+ outline:none;font-size:14px;
 }
-.panel{
-  background:linear-gradient(150deg,#151e2b,#0e141e);
-  border:1px solid var(--border);border-radius:23px;
-  padding:clamp(17px,4vw,29px);
-  margin-bottom:17px;box-shadow:0 20px 60px #0002;
+.input-wrap input:focus{border-color:var(--gold)}
+.options{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:14px;margin-top:20px;
 }
-.panel-title{font-size:19px;font-weight:850}
-.panel-desc{font-size:12px;color:var(--muted);line-height:1.7;margin-top:7px}
-.field-label{
-  display:flex;justify-content:space-between;gap:10px;
-  font-size:13px;font-weight:bold;margin:23px 0 10px;
+.field label{
+ display:block;color:#aaa;
+ font-size:12px;margin-bottom:9px;
 }
-.field-label small{font-size:11px;color:var(--muted);font-weight:normal}
-.input-row{display:flex;gap:9px}
-.url-input{
-  flex:1;min-width:0;width:100%;height:55px;
-  background:#080d15;border:1px solid #334158;
-  border-radius:13px;padding:0 14px;color:white;
-  outline:none;font-size:14px;
-}
-.url-input:focus{border-color:var(--gold);box-shadow:0 0 0 3px #ffc24712}
-.paste-btn{
-  padding:0 16px;border-radius:13px;border:1px solid #46536a;
-  color:white;background:#1b2534;font-weight:bold;cursor:pointer;
+.field select{
+ width:100%;padding:13px;
+ border-radius:10px;
+ background:#090909;color:#fff;
+ border:1px solid #51432b;
+ outline:none;
 }
 .platforms{
-  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:9px;margin-top:13px;
+ display:flex;flex-wrap:wrap;
+ justify-content:center;gap:9px;
+ margin:22px 0;
 }
 .platform{
-  min-width:0;border:1px solid var(--border);background:#0b111b;
-  border-radius:13px;padding:13px 5px;cursor:pointer;
-  color:#e4eaf4;transition:.2s;
+ padding:9px 13px;
+ background:#202020;
+ border:1px solid #333;
+ border-radius:30px;
+ color:#ddd;font-size:11px;
 }
-.platform:hover,.platform.selected{
-  border-color:var(--gold);background:#ffc2470d;
+.platform.active{
+ color:var(--gold);
+ border-color:var(--gold);
 }
-.platform .emoji{display:block;font-size:22px;margin-bottom:8px}
-.platform strong{font-size:11px;display:block}
-.platform small{font-size:9px;color:var(--muted);display:block;margin-top:5px}
-.quality-title{font-size:13px;font-weight:bold;margin:24px 0 11px}
-.qualities{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
-.quality{
-  padding:13px 3px;border-radius:10px;background:#0b111a;
-  border:1px solid var(--border);color:#c5d0df;font-size:12px;
-  font-weight:bold;cursor:pointer;
+.download-btn{
+ width:100%;padding:17px;
+ border:0;border-radius:11px;
+ background:linear-gradient(100deg,#a97820,#ffdf88,#c18b2e);
+ color:#171006;
+ font-weight:800;
+ font-size:15px;
+ letter-spacing:1px;
+ box-shadow:0 5px 22px #e6b84f33;
 }
-.quality.selected{
-  background:linear-gradient(120deg,#ffda6c,#ff9b27);
-  border-color:transparent;color:#17130a;
+.download-btn:disabled{opacity:.5;cursor:not-allowed}
+.message{
+ display:none;margin-top:18px;
+ padding:14px;border-radius:10px;
+ background:#202020;color:#ddd;
+ font-size:13px;line-height:1.7;
 }
-.primary{
-  position:relative;overflow:hidden;width:100%;margin-top:22px;
-  min-height:57px;border:0;border-radius:14px;
-  background:linear-gradient(105deg,#ffdc71,#ff9a26);
-  color:#17130a;font-size:16px;font-weight:950;
-  cursor:pointer;box-shadow:0 8px 25px #ff9c2220;
-}
-.primary:disabled{opacity:.65;cursor:wait}
-.primary:active{transform:scale(.99)}
-.statusbox{
-  display:none;margin-top:18px;padding:15px;border-radius:13px;
-  line-height:1.7;font-size:13px;overflow-wrap:anywhere;
-}
-.statusbox.show{display:block}
-.statusbox.info{background:#14243a;border:1px solid #35567d}
-.statusbox.error{background:#351b23;border:1px solid #713441}
-.statusbox.success{background:#112e25;border:1px solid #28694e}
-.status-title{font-weight:800;margin-bottom:4px}
-.progress-area{display:none;margin-top:19px}
+.message.show{display:block}
+.progress-area{display:none;margin-top:20px}
 .progress-area.show{display:block}
-.progress-top{display:flex;justify-content:space-between;gap:10px;font-size:12px;margin-bottom:9px}
+.progress-head{
+ display:flex;justify-content:space-between;
+ font-size:12px;color:#ddd;margin-bottom:10px;
+}
 .progress-track{
-  width:100%;height:9px;background:#263142;border-radius:20px;overflow:hidden;
+ height:9px;background:#303030;
+ border-radius:20px;overflow:hidden;
 }
 .progress-fill{
-  width:0;height:100%;border-radius:20px;
-  background:linear-gradient(90deg,#ff8c24,#ffe17a);
-  transition:width .15s linear;
+ width:0;height:100%;
+ background:linear-gradient(90deg,#ad7825,#ffe18b);
+ transition:width .4s;
 }
-.progress-fill.indeterminate{
-  width:35%;animation:loading 1.1s ease-in-out infinite;
+.result{
+ display:none;margin-top:20px;
+ border:1px solid #3c654a;
+ background:#102117;
+ padding:17px;border-radius:12px;
 }
-@keyframes loading{
-  0%{transform:translateX(-110%)}
-  100%{transform:translateX(310%)}
+.result.show{display:block}
+.result h3{color:#67e6a0;font-size:14px}
+.result p{font-size:12px;color:#bbb;margin:9px 0}
+.file-btn{
+ display:block;text-align:center;
+ text-decoration:none;
+ background:#2eae6b;color:#fff;
+ padding:13px;border-radius:9px;
+ font-weight:700;font-size:13px;
 }
-.progress-note{font-size:11px;color:var(--muted);margin-top:8px;line-height:1.6}
-.download-link{
-  display:inline-block;margin-top:12px;text-decoration:none;
-  color:#17130a;background:var(--gold);padding:12px 17px;
-  border-radius:10px;font-weight:900;
+.features{
+ display:grid;grid-template-columns:repeat(3,1fr);
+ gap:12px;margin-top:25px;
 }
-.result-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.secondary{
-  border:1px solid #425069;background:#1a2535;color:#fff;
-  padding:10px 13px;border-radius:10px;cursor:pointer;
+.feature{
+ background:#141414;border:1px solid #292929;
+ border-radius:12px;padding:18px 10px;
+ text-align:center;
 }
-.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
-.info-card{
-  border:1px solid var(--border);background:#0b111a;
-  padding:18px 13px;border-radius:15px;
+.feature .icon{font-size:25px}
+.feature h4{font-size:12px;color:var(--gold);margin:10px 0 5px}
+.feature p{font-size:10px;color:#888;line-height:1.5}
+.info{
+ margin-top:28px;padding:20px;
+ border:1px solid #30271a;
+ border-radius:13px;
+ background:#111;
 }
-.info-icon{font-size:25px}
-.info-card h3{font-size:13px;margin:10px 0 7px}
-.info-card p{font-size:11px;color:var(--muted);line-height:1.7}
-.steps{list-style:none;display:grid;gap:15px;margin-top:18px}
-.steps li{display:flex;align-items:flex-start;gap:12px}
-.step-no{
-  flex:0 0 29px;height:29px;border-radius:10px;
-  display:grid;place-items:center;background:#ffc24716;
-  color:var(--gold);font-weight:900;font-size:12px;
+.info h3{color:var(--gold);font-size:14px;margin-bottom:10px}
+.info p{font-size:12px;color:#999;line-height:1.9}
+footer{
+ border-top:1px solid #292019;
+ text-align:center;padding:25px 12px;
+ color:#777;font-size:11px;line-height:2;
 }
-.steps b{font-size:13px}
-.steps p{font-size:12px;color:var(--muted);line-height:1.7;margin-top:5px}
-.warning{
-  margin-top:18px;padding:13px;border:1px solid #57452b;
-  background:#ffc24708;border-radius:12px;
-  color:#c8bba1;font-size:11px;line-height:1.8;
-}
-footer{text-align:center;padding:27px 0 32px;color:#75839a;font-size:11px;line-height:2}
-footer strong{color:#e5bd61;letter-spacing:1px}
-@media(max-width:480px){
-  .wrap{width:calc(100% - 20px)}
-  .hero{padding-top:29px}
-  .platforms{gap:6px}
-  .platform{padding:12px 2px}
-  .platform strong{font-size:10px}
-  .qualities{gap:5px}
-  .quality{font-size:11px}
-  .input-row{flex-direction:column}
-  .url-input{flex:none}
-  .paste-btn{height:43px}
-  .info-grid{gap:7px}
-  .info-card{padding:12px 8px}
-  .info-card h3{font-size:12px}
-}
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation:none!important;scroll-behavior:auto!important;transition:none!important}
+footer strong{color:var(--gold)}
+@media(max-width:520px){
+ header{padding:0 15px;height:65px}
+ .brand h2{font-size:11px}
+ .logo{width:39px;height:39px;font-size:21px}
+ main{padding:20px 12px 40px}
+ .downloader{padding:17px}
+ .options{grid-template-columns:1fr}
+ .features{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
 
 <body>
-<div class="wrap">
 
-<header class="topbar">
-  <a href="#" class="brand" aria-label="Fast Cobra home">
-    <div class="brand-icon">🐍</div>
-    <div>
-      <div class="brand-name">FAST <span>COBRA</span></div>
-      <div class="brand-sub">VIDEO DOWNLOADER</div>
-    </div>
-  </a>
-  <div class="secure">● SMART DOWNLOADER</div>
+<header>
+ <div class="brand">
+  <div class="logo">🐍</div>
+  <div>
+   <h2>FAST COBRA</h2>
+   <small>PREMIUM DOWNLOADER</small>
+  </div>
+ </div>
+ <div class="status">● API V2</div>
 </header>
 
-<section class="hero">
-  <div class="cobra-art" aria-hidden="true">🐍</div>
-  <h1>FAST <span>COBRA</span></h1>
-  <p>Your video link. Your preferred quality. One simple interface.</p>
-  <div class="pills">
-    <span class="pill">⚡ Easy to use</span>
-    <span class="pill">📱 Mobile friendly</span>
-    <span class="pill">🎬 Quality options</span>
-  </div>
-</section>
-
 <main>
-<section class="panel">
-  <h2 class="panel-title">Download your video</h2>
-  <p class="panel-desc">Paste a video URL from a source supported by the connected download service.</p>
 
-  <label class="field-label" for="videoUrl">
-    <span>Video link</span>
-    <small>HTTP / HTTPS</small>
-  </label>
-
-  <div class="input-row">
-    <input id="videoUrl" class="url-input" type="url"
-      placeholder="Paste your video link here..."
-      autocomplete="url" inputmode="url">
-    <button type="button" class="paste-btn" id="pasteBtn">📋 Paste</button>
-  </div>
-
-  <div class="platforms" aria-label="Choose a platform">
-    <button class="platform selected" type="button" data-platform="auto">
-      <span class="emoji">🌐</span><strong>Auto Detect</strong><small>Any supported URL</small>
-    </button>
-    <button class="platform" type="button" data-platform="youtube">
-      <span class="emoji">▶️</span><strong>YouTube</strong><small>Backend required</small>
-    </button>
-    <button class="platform" type="button" data-platform="tiktok">
-      <span class="emoji">🎵</span><strong>TikTok</strong><small>Backend required</small>
-    </button>
-    <button class="platform" type="button" data-platform="facebook">
-      <span class="emoji">📘</span><strong>Facebook</strong><small>Backend required</small>
-    </button>
-    <button class="platform" type="button" data-platform="instagram">
-      <span class="emoji">📸</span><strong>Instagram</strong><small>Backend required</small>
-    </button>
-    <button class="platform" type="button" data-platform="direct">
-      <span class="emoji">📁</span><strong>Direct Link</strong><small>Video file URL</small>
-    </button>
-  </div>
-
-  <div class="quality-title">Choose video quality</div>
-  <div class="qualities">
-    <button class="quality selected" type="button" data-quality="best">Best</button>
-    <button class="quality" type="button" data-quality="1080">1080p</button>
-    <button class="quality" type="button" data-quality="720">720p</button>
-    <button class="quality" type="button" data-quality="480">480p</button>
-    <button class="quality" type="button" data-quality="360">360p</button>
-  </div>
-
-  <button class="primary" type="button" id="downloadBtn">⚡ START DOWNLOAD</button>
-
-  <div class="progress-area" id="progressArea">
-    <div class="progress-top">
-      <span id="progressLabel">Connecting to service...</span>
-      <strong id="progressPercent">—</strong>
-    </div>
-    <div class="progress-track" id="progressTrack"
-      role="progressbar" aria-label="Download progress"
-      aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-      <div class="progress-fill indeterminate" id="progressFill"></div>
-    </div>
-    <p class="progress-note" id="progressNote">
-      Waiting for the service. Processing progress may not be available.
-    </p>
-  </div>
-
-  <div class="statusbox" id="statusBox" role="status" aria-live="polite"></div>
-
-  <div class="warning">
-    <strong>Safety & permission:</strong> Download only videos you own or are authorized to save. Private content, login-protected media and platform restrictions may prevent downloading.
-  </div>
+<section class="hero">
+ <div class="cobra">🐍</div>
+ <h1>THE FAST COBRA</h1>
+ <div class="goldline"></div>
+ <p>ULTIMATE VIDEO & AUDIO DOWNLOADER</p>
+ <p>Fast • Simple • Powerful</p>
 </section>
 
-<section class="panel">
-  <h2 class="panel-title">Built for a smoother experience</h2>
-  <p class="panel-desc">A cleaner interface for supported download sources.</p>
-  <div class="info-grid" style="margin-top:19px">
-    <article class="info-card">
-      <div class="info-icon">⚡</div>
-      <h3>Quick access</h3>
-      <p>Paste a link and send it to your configured service.</p>
-    </article>
-    <article class="info-card">
-      <div class="info-icon">📊</div>
-      <h3>Live progress</h3>
-      <p>Shows byte progress when the server returns a video stream.</p>
-    </article>
-    <article class="info-card">
-      <div class="info-icon">🐍</div>
-      <h3>Cobra design</h3>
-      <p>Dark styling, gold highlights and responsive controls.</p>
-    </article>
+<section class="downloader">
+
+ <div class="section-title">↓ Download Your Media</div>
+
+ <div class="input-wrap">
+  <input id="videoUrl" type="url"
+   placeholder="Paste your video URL here..."
+   autocomplete="url">
+ </div>
+
+ <div class="options">
+
+  <div class="field">
+   <label>Download Format</label>
+   <select id="mediaType">
+    <option value="video">Video MP4</option>
+    <option value="mp3">Audio MP3</option>
+   </select>
   </div>
+
+  <div class="field">
+   <label>Video Quality</label>
+   <select id="quality">
+    <option value="best">Best Available</option>
+    <option value="1080p">1080p HD</option>
+    <option value="720p">720p HD</option>
+    <option value="480p">480p</option>
+    <option value="360p">360p</option>
+   </select>
+  </div>
+
+ </div>
+
+ <div class="platforms">
+  <span class="platform">YouTube</span>
+  <span class="platform">TikTok</span>
+  <span class="platform">Facebook</span>
+  <span class="platform">Instagram</span>
+  <span class="platform active">Direct MP4</span>
+ </div>
+
+ <button class="download-btn" id="downloadBtn"
+ onclick="startDownload()">
+  ↓ DOWNLOAD NOW
+ </button>
+
+ <div class="message" id="message"></div>
+
+ <div class="progress-area" id="progressArea">
+  <div class="progress-head">
+   <span id="progressText">Preparing download...</span>
+   <span id="progressPercent">0%</span>
+  </div>
+  <div class="progress-track">
+   <div class="progress-fill" id="progressFill"></div>
+  </div>
+ </div>
+
+ <div class="result" id="result">
+  <h3>✓ Download Ready!</h3>
+  <p id="fileTitle"></p>
+  <a class="file-btn" id="fileLink" href="#">
+   ↓ DOWNLOAD FILE
+  </a>
+ </div>
+
 </section>
 
-<section class="panel">
-  <h2 class="panel-title">How to use</h2>
-  <ul class="steps">
-    <li>
-      <span class="step-no">01</span>
-      <div><b>Copy your video link</b><p>Open the source and copy a URL you have permission to download.</p></div>
-    </li>
-    <li>
-      <span class="step-no">02</span>
-      <div><b>Paste and select quality</b><p>Paste the URL and choose the preferred resolution.</p></div>
-    </li>
-    <li>
-      <span class="step-no">03</span>
-      <div><b>Start download</b><p>Wait for the configured service to return a supported download result.</p></div>
-    </li>
-  </ul>
+<section class="features">
+
+ <div class="feature">
+  <div class="icon">🎬</div>
+  <h4>Video Download</h4>
+  <p>Supported video formats</p>
+ </div>
+
+ <div class="feature">
+  <div class="icon">🎵</div>
+  <h4>MP3 Audio</h4>
+  <p>Audio conversion support</p>
+ </div>
+
+ <div class="feature">
+  <div class="icon">⚡</div>
+  <h4>Fast Engine</h4>
+  <p>Background processing</p>
+ </div>
+
+ <div class="feature">
+  <div class="icon">📺</div>
+  <h4>HD Quality</h4>
+  <p>Available video qualities</p>
+ </div>
+
+ <div class="feature">
+  <div class="icon">📱</div>
+  <h4>Mobile Friendly</h4>
+  <p>Responsive design</p>
+ </div>
+
+ <div class="feature">
+  <div class="icon">🔒</div>
+  <h4>Simple & Safe</h4>
+  <p>Clear download status</p>
+ </div>
+
 </section>
+
+<section class="info">
+ <h3>About The Fast Cobra</h3>
+ <p>
+ The Fast Cobra is a video and audio downloading interface.
+ Paste a supported media URL, select your format and quality,
+ and check the download progress.
+ <br><br>
+ Only download content you own or are authorized to save.
+ Platform restrictions and availability may apply.
+ </p>
+</section>
+
 </main>
 
 <footer>
-  <strong>🐍 FAST COBRA DOWNLOADER</strong><br>
-  Built for simplicity · Mobile friendly · 2026
+ <strong>🐍 THE FAST COBRA DOWNLOADER</strong>
+ <br>PREMIUM EDITION 3.0
+ <br>© 2026 All Rights Reserved
 </footer>
-</div>
 
 <script>
-(function(){
-"use strict";
 
-/*
-  Existing API endpoint retained from the previous page.
-  The server must implement GET /api/download and return either:
-  1. A video/octet-stream response, or
-  2. JSON containing a downloadUrl string.
-*/
-const API_BASE = "https://the-fast-cobra-api.muhajirhackers.workers.dev";
+// IMPORTANT:
+// Replace this with your HTTPS-enabled Enzonic domain.
+// GitHub Pages cannot call an HTTP API due to mixed-content
+// browser security restrictions.
 
-const urlInput = document.getElementById("videoUrl");
-const pasteBtn = document.getElementById("pasteBtn");
-const downloadBtn = document.getElementById("downloadBtn");
-const statusBox = document.getElementById("statusBox");
-const progressArea = document.getElementById("progressArea");
-const progressFill = document.getElementById("progressFill");
-const progressLabel = document.getElementById("progressLabel");
-const progressPercent = document.getElementById("progressPercent");
-const progressNote = document.getElementById("progressNote");
-const progressTrack = document.getElementById("progressTrack");
+const API_BASE = "https://YOUR-HTTPS-API-DOMAIN";
 
-let selectedQuality = "best";
-let selectedPlatform = "auto";
-let activeController = null;
+let currentJob = null;
+let polling = false;
 
-document.querySelectorAll(".quality").forEach(function(button){
-  button.addEventListener("click",function(){
-    document.querySelectorAll(".quality").forEach(function(item){
-      item.classList.remove("selected");
-    });
-    button.classList.add("selected");
-    selectedQuality = button.dataset.quality;
+const $ = id => document.getElementById(id);
+
+function showMessage(text){
+ const box = $("message");
+ box.textContent = text;
+ box.classList.add("show");
+}
+
+function hideMessage(){
+ $("message").classList.remove("show");
+}
+
+function setProgress(value,text){
+ const p = Math.max(0,Math.min(100,Number(value)||0));
+ $("progressFill").style.width = p + "%";
+ $("progressPercent").textContent = p + "%";
+ $("progressText").textContent = text || "Downloading...";
+}
+
+async function startDownload(){
+
+ if(API_BASE.includes("YOUR-HTTPS-API-DOMAIN")){
+  showMessage(
+   "API HTTPS setup is still required. Configure a secure domain in Enzonic Networking before downloading."
+  );
+  return;
+ }
+
+ const url = $("videoUrl").value.trim();
+
+ if(!url){
+  showMessage("Please paste a video URL first.");
+  return;
+ }
+
+ try{
+  const parsed = new URL(url);
+  if(!["http:","https:"].includes(parsed.protocol)){
+   throw new Error("Invalid URL");
+  }
+ }catch(e){
+  showMessage("Please enter a valid video URL.");
+  return;
+ }
+
+ $("downloadBtn").disabled = true;
+ $("result").classList.remove("show");
+ $("progressArea").classList.add("show");
+ hideMessage();
+ setProgress(0,"Starting download...");
+
+ try{
+
+  const response = await fetch(API_BASE + "/api/download",{
+   method:"POST",
+   headers:{"Content-Type":"application/json"},
+   body:JSON.stringify({
+    url:url,
+    quality:$("quality").value,
+    type:$("mediaType").value
+   })
   });
-});
 
-document.querySelectorAll(".platform").forEach(function(button){
-  button.addEventListener("click",function(){
-    document.querySelectorAll(".platform").forEach(function(item){
-      item.classList.remove("selected");
-    });
-    button.classList.add("selected");
-    selectedPlatform = button.dataset.platform;
-  });
-});
+  const data = await response.json();
 
-function setStatus(message,type){
-  statusBox.className = "statusbox show " + type;
-  statusBox.replaceChildren();
-  const title = document.createElement("div");
-  title.className = "status-title";
-  title.textContent = type === "error" ? "Unable to download" :
-    type === "success" ? "Ready" : "Download status";
-  const body = document.createElement("div");
-  body.textContent = message;
-  statusBox.append(title,body);
-}
-
-function setProgress(percent,label,note,indeterminate){
-  progressArea.classList.add("show");
-  progressLabel.textContent = label;
-  progressNote.textContent = note;
-  progressFill.classList.toggle("indeterminate",!!indeterminate);
-
-  if(indeterminate){
-    progressPercent.textContent = "…";
-    progressTrack.removeAttribute("aria-valuenow");
-  }else{
-    const safe = Math.max(0,Math.min(100,percent));
-    progressFill.style.width = safe + "%";
-    progressPercent.textContent = Math.round(safe) + "%";
-    progressTrack.setAttribute("aria-valuenow",String(Math.round(safe)));
+  if(!response.ok){
+   throw new Error(data.error || "Unable to start download.");
   }
+
+  currentJob = data.job_id;
+  polling = true;
+  pollStatus();
+
+ }catch(error){
+  showMessage("Error: " + error.message);
+  $("downloadBtn").disabled = false;
+  $("progressArea").classList.remove("show");
+ }
 }
 
-function resetProgress(){
-  progressArea.classList.remove("show");
-  progressFill.classList.remove("indeterminate");
-  progressFill.style.width = "0%";
-  progressPercent.textContent = "—";
-  progressTrack.setAttribute("aria-valuenow","0");
-}
+async function pollStatus(){
 
-function setBusy(busy){
-  downloadBtn.disabled = busy;
-  pasteBtn.disabled = busy;
-  downloadBtn.textContent = busy ? "⏳ PROCESSING..." : "⚡ START DOWNLOAD";
-}
+ while(polling && currentJob){
 
-function safeHttpUrl(value){
   try{
-    const parsed = new URL(value);
-    return parsed.protocol === "https:" || parsed.protocol === "http:";
-  }catch(error){
-    return false;
-  }
-}
 
-function isAllowedDownloadUrl(value){
-  try{
-    const parsed = new URL(value);
-    return parsed.protocol === "https:" || parsed.protocol === "http:";
-  }catch(error){
-    return false;
-  }
-}
+   const response = await fetch(
+    API_BASE + "/api/status/" + encodeURIComponent(currentJob),
+    {cache:"no-store"}
+   );
 
-pasteBtn.addEventListener("click",async function(){
-  try{
-    if(!navigator.clipboard || !navigator.clipboard.readText){
-      throw new Error("Clipboard access is unavailable.");
-    }
-    const text = await navigator.clipboard.readText();
-    if(!text.trim()) throw new Error("Clipboard is empty.");
-    urlInput.value = text.trim();
-    setStatus("Link pasted. Choose quality and press Start Download.","success");
-  }catch(error){
-    urlInput.focus();
-    setStatus("Clipboard access was blocked. Please paste your link into the box manually.","info");
-  }
-});
+   const data = await response.json();
 
-function createDownloadLink(url,text){
-  const link = document.createElement("a");
-  link.className = "download-link";
-  link.href = url;
-  link.target = "_blank";
-  link.rel = "noopener noreferrer";
-  link.textContent = text || "⬇ OPEN DOWNLOAD";
-  return link;
-}
+   if(!response.ok){
+    throw new Error(data.error || "Status check failed.");
+   }
 
-function showDownloadResult(url){
-  statusBox.className = "statusbox show success";
-  statusBox.replaceChildren();
+   setProgress(
+    data.progress,
+    data.status === "processing"
+     ? "Preparing your file..."
+     : "Downloading..."
+   );
 
-  const title = document.createElement("div");
-  title.className = "status-title";
-  title.textContent = "Download link received";
+   if(data.status === "finished"){
 
-  const description = document.createElement("div");
-  description.textContent = "The service returned a download link. Open it to continue.";
+    polling = false;
 
-  statusBox.append(title,description,createDownloadLink(url,"⬇ OPEN / DOWNLOAD VIDEO"));
-}
+    $("fileTitle").textContent =
+     data.title || data.filename || "Your file is ready.";
 
-async function readStreamWithProgress(response){
-  const totalHeader = response.headers.get("content-length");
-  const total = totalHeader ? Number(totalHeader) : 0;
+    $("fileLink").href =
+     API_BASE + data.download_url;
 
-  if(!response.body || !response.body.getReader){
-    const blob = await response.blob();
-    setProgress(100,"Video received","The response was received. Tap the download button below.",false);
-    return blob;
-  }
+    $("result").classList.add("show");
+    setProgress(100,"Download ready!");
 
-  const reader = response.body.getReader();
-  const chunks = [];
-  let received = 0;
-
-  while(true){
-    const result = await reader.read();
-    if(result.done) break;
-
-    chunks.push(result.value);
-    received += result.value.byteLength;
-
-    if(total > 0){
-      const percent = Math.min(99,(received / total) * 100);
-      setProgress(
-        percent,
-        "Downloading video...",
-        (received / 1048576).toFixed(2) + " MB of " +
-        (total / 1048576).toFixed(2) + " MB received",
-        false
-      );
-    }else{
-      setProgress(
-        0,
-        "Receiving video...",
-        (received / 1048576).toFixed(2) +
-        " MB received. The server did not provide a total file size.",
-        true
-      );
-    }
-  }
-
-  setProgress(100,"Download data received","Preparing your file...",false);
-
-  const contentType = response.headers.get("content-type") || "application/octet-stream";
-  return new Blob(chunks,{type:contentType});
-}
-
-downloadBtn.addEventListener("click",async function(){
-  const videoUrl = urlInput.value.trim();
-
-  if(!videoUrl){
-    setStatus("Please paste a video URL first.","error");
-    urlInput.focus();
+    $("downloadBtn").disabled = false;
     return;
-  }
+   }
 
-  if(!safeHttpUrl(videoUrl)){
-    setStatus("Enter a valid link beginning with https:// or http://.","error");
-    urlInput.focus();
-    return;
-  }
-
-  if(activeController){
-    activeController.abort();
-  }
-
-  activeController = new AbortController();
-  const controller = activeController;
-
-  setBusy(true);
-  statusBox.className = "statusbox";
-  resetProgress();
-  setProgress(0,"Connecting to download service...","The server may take time to process the link.",true);
-
-  try{
-    const endpoint = API_BASE + "/api/download"
-      + "?url=" + encodeURIComponent(videoUrl)
-      + "&quality=" + encodeURIComponent(selectedQuality);
-
-    const response = await fetch(endpoint,{
-      method:"GET",
-      headers:{"Accept":"application/json, video/*, application/octet-stream"},
-      signal:controller.signal
-    });
-
-    if(!response.ok){
-      let message = "The service returned HTTP " + response.status + ".";
-      try{
-        const data = await response.json();
-        if(data && typeof data.error === "string") message = data.error;
-        else if(data && typeof data.message === "string") message = data.message;
-      }catch(ignore){}
-      throw new Error(message);
-    }
-
-    const contentType = (response.headers.get("content-type") || "").toLowerCase();
-
-    if(contentType.includes("application/json")){
-      const data = await response.json();
-
-      if(data && typeof data.downloadUrl === "string" &&
-         isAllowedDownloadUrl(data.downloadUrl)){
-        setProgress(100,"Link ready","Your server returned a download link.",false);
-        showDownloadResult(data.downloadUrl);
-      }else if(data && typeof data.error === "string"){
-        throw new Error(data.error);
-      }else{
-        throw new Error(
-          "The backend did not return a valid downloadUrl. Check its API response."
-        );
-      }
-      return;
-    }
-
-    const isVideo = contentType.startsWith("video/") ||
-      contentType.includes("application/octet-stream") ||
-      contentType.includes("application/mp4");
-
-    if(!isVideo){
-      throw new Error(
-        "Unsupported response type: " + (contentType || "unknown") +
-        ". The API must return a video file or JSON with downloadUrl."
-      );
-    }
-
-    const blob = await readStreamWithProgress(response);
-
-    if(blob.size === 0){
-      throw new Error("The server returned an empty file.");
-    }
-
-    const objectUrl = URL.createObjectURL(blob);
-    const fileExtension = contentType.includes("webm") ? "webm" :
-      contentType.includes("mpeg") ? "mpg" : "mp4";
-
-    statusBox.className = "statusbox show success";
-    statusBox.replaceChildren();
-
-    const title = document.createElement("div");
-    title.className = "status-title";
-    title.textContent = "Video ready";
-
-    const description = document.createElement("div");
-    description.textContent = "File size: " + (blob.size / 1048576).toFixed(2) + " MB";
-
-    const link = createDownloadLink(objectUrl,"⬇ SAVE VIDEO");
-    link.download = "fast-cobra-video." + fileExtension;
-
-    statusBox.append(title,description,link);
-
-    progressNote.textContent = "The file is ready. Tap SAVE VIDEO to save it to your device.";
-
-    window.setTimeout(function(){
-      URL.revokeObjectURL(objectUrl);
-    },10 * 60 * 1000);
+   if(data.status === "error"){
+    throw new Error(data.error || "Download failed.");
+   }
 
   }catch(error){
-    if(error.name === "AbortError"){
-      setStatus("The previous request was cancelled.","info");
-    }else{
-      console.error("FAST COBRA:",error);
-      setStatus(
-        (error.message || "An unexpected error occurred.") +
-        " Check that the download API is online and configured for this source.",
-        "error"
-      );
-      progressArea.classList.remove("show");
-    }
-  }finally{
-    if(activeController === controller){
-      activeController = null;
-      setBusy(false);
-    }
+
+   polling = false;
+   showMessage(error.message);
+   $("downloadBtn").disabled = false;
+   return;
   }
+
+  await new Promise(resolve=>setTimeout(resolve,2000));
+ }
+}
+
+$("mediaType").addEventListener("change",()=>{
+ $("quality").disabled = $("mediaType").value === "mp3";
 });
 
-urlInput.addEventListener("keydown",function(event){
-  if(event.key === "Enter"){
-    downloadBtn.click();
-  }
-});
-})();
 </script>
 </body>
 </html>
