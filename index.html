@@ -5,8 +5,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#080808">
-<meta name="description" content="The Fast Cobra Downloader - Video and Audio Downloader">
-<title>The Fast Cobra Downloader Premium</title>
+<meta name="description" content="The Fast Cobra Premium Downloader">
+<title>The Fast Cobra Downloader 5.0</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
@@ -32,18 +32,54 @@ header{
  padding:22px 12px;
  text-align:center;
  border-bottom:1px solid #493918;
- background:#080808eF;
+ background:#080808ef;
+}
+.cobra-logo{
+ width:125px;
+ height:125px;
+ object-fit:cover;
+ object-position:center;
+ border-radius:50%;
+ border:3px solid var(--gold);
+ box-shadow:0 0 24px #c18b2c88;
+ background:#111;
 }
 .logo{
  color:var(--gold);
  font-size:29px;
  font-weight:900;
  text-shadow:0 0 18px #b88727;
+ margin-top:9px;
 }
 .tagline{
  font-size:11px;
  color:#ccc;
  letter-spacing:3px;
+}
+.founder{
+ margin:14px auto 0;
+ padding:10px 15px;
+ width:min(94%,390px);
+ border:1px solid #8d6a2c;
+ border-radius:12px;
+ background:linear-gradient(135deg,#21190b,#100e09);
+}
+.founder strong{
+ display:block;
+ color:var(--gold2);
+ font-size:18px;
+}
+.founder span{
+ display:block;
+ color:#ddd;
+ font-size:12px;
+}
+.founder small{
+ display:block;
+ color:var(--gold);
+ font-size:12px;
+ font-weight:900;
+ margin-top:4px;
 }
 .api-status{
  display:inline-block;
@@ -217,12 +253,15 @@ footer{
  color:#777;
  padding:25px 10px;
  font-size:12px;
+ line-height:2;
 }
 footer span{color:var(--gold)}
+footer a{color:var(--gold2)}
 @media(max-width:420px){
  .panel{padding:16px}
  .logo{font-size:24px}
  .platforms{grid-template-columns:repeat(4,1fr)}
+ .cobra-logo{width:110px;height:110px}
 }
 </style>
 </head>
@@ -230,8 +269,21 @@ footer span{color:var(--gold)}
 <body>
 
 <header>
+ <img
+  class="cobra-logo"
+  src="https://live.staticflickr.com/2312/1980455755_c483d1b2a1_o.jpg"
+  alt="Real King Cobra"
+  onerror="this.style.display='none'"
+ >
  <div class="logo">🐍 THE FAST COBRA</div>
- <div class="tagline">PREMIUM DOWNLOADER 4.0</div>
+ <div class="tagline">PREMIUM DOWNLOADER 5.0</div>
+
+ <div class="founder">
+  <strong>AQIB JAVED</strong>
+  <span>S/O MUHAMMAD YASEEN TELI</span>
+  <small>FOUNDER &amp; ADMIN</small>
+ </div>
+
  <div class="api-status" id="apiStatus">● API CHECKING...</div>
 </header>
 
@@ -305,8 +357,8 @@ footer span{color:var(--gold)}
   </div>
 
   <div class="note">
-   MP3 کے لیے سرور پر FFmpeg ضروری ہے۔
-   منتخب کوالٹی صرف اسی وقت دستیاب ہوگی جب اصل ویڈیو میں موجود ہو۔
+   MP3 کے لیے سرور پر FFmpeg ضروری ہے۔<br>
+   منتخب کوالٹی صرف اسی وقت دستیاب ہوگی جب اصل ویڈیو میں موجود ہو۔<br>
    صرف اپنی یا ڈاؤنلوڈ کی اجازت والی ویڈیوز استعمال کریں۔
   </div>
 
@@ -325,6 +377,10 @@ footer span{color:var(--gold)}
 
 <footer>
  © 2026 <span>THE FAST COBRA DOWNLOADER</span><br>
+ Founder &amp; Admin: <span>AQIB JAVED</span><br>
+ S/O MUHAMMAD YASEEN TELI<br>
+ King Cobra photo:
+ <a href="https://commons.wikimedia.org/wiki/File:King-Cobra2.jpg" target="_blank" rel="noopener">Photo source and license</a><br>
  Powered by Fast Cobra API
 </footer>
 
@@ -335,7 +391,6 @@ footer span{color:var(--gold)}
 const API_BASE = "https://fastcobra.enzonic.dev";
 
 const $ = id => document.getElementById(id);
-
 const videoInput = $("videoUrl");
 const mediaType = $("mediaType");
 const quality = $("quality");
@@ -351,6 +406,7 @@ const apiStatus = $("apiStatus");
 
 let busy = false;
 let cancelPolling = false;
+let lastStartAt = 0;
 
 function showStatus(title,message,progress){
  statusBox.style.display="block";
@@ -391,7 +447,6 @@ async function checkAPI(){
  try{
   const data=await apiFetch("/health");
   if(data.status!=="ok") throw new Error("API unavailable");
-
   apiStatus.textContent="● API ONLINE";
   apiStatus.style.color="#55e59d";
  }catch(e){
@@ -412,7 +467,11 @@ function formatSpeed(speed){
 }
 
 async function startDownload(){
- if(busy)return;
+
+ const now=Date.now();
+
+ if(busy || now-lastStartAt<1200)return;
+ lastStartAt=now;
 
  const url=videoInput.value.trim();
  const type=mediaType.value;
@@ -431,12 +490,14 @@ async function startDownload(){
 
  busy=true;
  cancelPolling=false;
+
  downloadBtn.disabled=true;
+ downloadBtn.setAttribute("aria-busy","true");
  downloadBtn.textContent="PLEASE WAIT...";
+
  resultBox.replaceChildren();
  statusMessage.className="status-message";
  etaText.textContent="Connecting...";
-
  showStatus("CONNECTING TO SERVER","آپ کی درخواست سرور کو بھیجی جا رہی ہے...",3);
 
  try{
@@ -462,14 +523,17 @@ async function startDownload(){
   showStatus("DOWNLOAD ERROR",e.message,0);
   statusMessage.className="status-message error";
   etaText.textContent="Failed";
+
  }finally{
   busy=false;
   downloadBtn.disabled=false;
+  downloadBtn.removeAttribute("aria-busy");
   downloadBtn.textContent="⬇ DOWNLOAD NOW";
  }
 }
 
 async function monitorDownload(jobId){
+
  const maxAttempts=240;
 
  for(let attempt=1;attempt<=maxAttempts;attempt++){
@@ -486,6 +550,7 @@ async function monitorDownload(jobId){
   const progress=Number(data.progress)||0;
 
   if(status==="finished"){
+
    showStatus("DOWNLOAD READY","آپ کی فائل تیار ہے۔",100);
    statusMessage.className="status-message success";
    etaText.textContent="Completed";
@@ -545,6 +610,7 @@ async function monitorDownload(jobId){
 }
 
 function resetForm(){
+
  if(busy){
   alert("ڈاؤنلوڈ جاری ہے۔ پہلے اسے مکمل ہونے دیں۔");
   return;
