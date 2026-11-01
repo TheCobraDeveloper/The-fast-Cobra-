@@ -1,5 +1,4 @@
 
-
 name: Build THE FAST COBRA APK
 
 on:
@@ -8,6 +7,7 @@ on:
     paths:
       - 'android/**'
       - '.github/workflows/build-apk.yml'
+      - 'IMG-20261101-WA0634.jpg'
 
 jobs:
   build:
@@ -30,6 +30,27 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.9'
+
+      - name: Create Cobra App Icon
+        run: |
+          python3 -m pip install Pillow
+          python3 - <<'PY'
+          from PIL import Image, ImageOps
+          import os
+
+          source = "IMG-20261101-WA0634.jpg"
+          target = "android/app/src/main/res/drawable/cobra_icon.png"
+
+          if not os.path.exists(source):
+              raise FileNotFoundError("Cobra logo image not found!")
+
+          os.makedirs(os.path.dirname(target), exist_ok=True)
+          image = Image.open(source).convert("RGBA")
+          image = ImageOps.fit(image, (512, 512))
+          image.save(target, "PNG")
+
+          print("Cobra icon created successfully!")
+          PY
 
       - name: Build APK
         run: gradle -p android assembleDebug
