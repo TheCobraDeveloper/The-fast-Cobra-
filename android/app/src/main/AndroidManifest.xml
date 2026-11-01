@@ -1,22 +1,15 @@
 
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:allowBackup="true"
         android:label="THE FAST COBRA"
-        android:icon="@drawable/cobra_icon"
-        android:roundIcon="@drawable/cobra_icon"
-        android:usesCleartextTraffic="false"
         android:theme="@android:style/Theme.Material.Light.NoActionBar">
 
         <activity
-            android:name=".MainActivity"
-            android:exported="true"
-            android:screenOrientation="unspecified">
+            android:name="com.fastcobra.downloader.MainActivity"
+            android:exported="true">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,5 +18,4 @@
 
         </activity>
     </application>
-
 </manifest>
