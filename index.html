@@ -1,227 +1,196 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ur" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#080808">
-<meta name="description" content="The Fast Cobra Downloader - Video and audio downloader.">
-<title>The Fast Cobra Downloader | Premium</title>
+<meta name="description" content="The Fast Cobra Downloader - Fast and simple video downloader">
+<title>The Fast Cobra Downloader</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
-:root{
- --gold:#e6b84f;
- --gold2:#ffdf88;
- --bg:#080808;
- --panel:#141414;
- --muted:#999;
- --green:#36d68a;
+:root {
+  --gold: #e7b84b;
+  --gold2: #ffd978;
+  --bg: #080808;
+  --card: #151515;
+  --muted: #aaa;
+  --green: #20c878;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-body{
- background:var(--bg);
- color:#fff;
- font-family:Inter,Arial,sans-serif;
- min-height:100vh;
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at top, #29200c 0%, transparent 48%),
+    var(--bg);
+  color: #fff;
+  font-family: 'Cairo', sans-serif;
 }
-button,input,select{font:inherit}
-button{cursor:pointer}
-header{
- height:76px;
- padding:0 6%;
- display:flex;
- align-items:center;
- justify-content:space-between;
- border-bottom:1px solid #332819;
- background:#0c0c0c;
- position:sticky;top:0;z-index:10;
+header {
+  padding: 22px 15px;
+  text-align: center;
+  border-bottom: 1px solid #493918;
+  background: rgba(0,0,0,.75);
 }
-.brand{
- display:flex;align-items:center;gap:12px;
+.logo {
+  font-size: 30px;
+  font-weight: 900;
+  color: var(--gold);
+  letter-spacing: 1px;
+  text-shadow: 0 0 18px #b88727;
 }
-.logo{
- width:45px;height:45px;border-radius:50%;
- display:grid;place-items:center;
- border:2px solid var(--gold);
- color:var(--gold);
- font-size:25px;
- box-shadow:0 0 16px #d5a33b44;
+.tagline {
+  color: #ddd;
+  font-size: 12px;
+  letter-spacing: 2px;
 }
-.brand h2{
- font-family:Orbitron,sans-serif;
- font-size:15px;color:var(--gold);
+.container {
+  width: min(92%, 650px);
+  margin: 35px auto;
 }
-.brand small{color:#999;font-size:9px;letter-spacing:2px}
-.status{
- border:1px solid #315a43;
- color:var(--green);
- padding:8px 12px;border-radius:30px;
- font-size:11px;
+.hero { text-align: center; margin-bottom: 25px; }
+.hero h1 {
+  font-size: clamp(25px, 6vw, 39px);
+  line-height: 1.5;
+  margin: 0;
 }
-main{max-width:900px;margin:auto;padding:35px 18px 60px}
-.hero{text-align:center;padding:25px 0 30px}
-.cobra{
- font-size:72px;
- filter:drop-shadow(0 0 17px #e6b84f66);
- animation:float 3s ease-in-out infinite;
+.hero h1 span { color: var(--gold); }
+.hero p { color: var(--muted); font-size: 14px; }
+.panel {
+  background: linear-gradient(145deg, #1b1b1b, #101010);
+  border: 1px solid #57431c;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 12px 40px #0009, 0 0 25px #d09a2510;
 }
-@keyframes float{
- 0%,100%{transform:translateY(0)}
- 50%{transform:translateY(-9px)}
+.label {
+  display: block;
+  color: var(--gold2);
+  font-weight: 700;
+  margin-bottom: 10px;
 }
-.hero h1{
- font-family:Orbitron,sans-serif;
- font-size:clamp(25px,6vw,43px);
- letter-spacing:2px;
- color:var(--gold);
- margin:15px 0 10px;
+input {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid #51401e;
+  border-radius: 12px;
+  outline: none;
+  background: #080808;
+  color: white;
+  font-family: inherit;
+  font-size: 14px;
+  direction: ltr;
+  text-align: left;
 }
-.hero p{color:#aaa;font-size:14px;line-height:1.7}
-.goldline{
- height:2px;width:90px;margin:18px auto;
- background:linear-gradient(90deg,transparent,var(--gold),transparent);
+input:focus { border-color: var(--gold); }
+button, .download-link {
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  margin-top: 16px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 900;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
 }
-.downloader{
- background:linear-gradient(145deg,#191919,#101010);
- border:1px solid #44351f;
- border-radius:20px;
- padding:25px;
- box-shadow:0 15px 50px #0009;
+.primary {
+  background: linear-gradient(90deg, #bd8a27, #ffe08a, #bd8a27);
+  color: #171006;
 }
-.section-title{
- color:var(--gold2);
- font-weight:700;
- font-size:16px;
- margin-bottom:16px;
+.primary:disabled { opacity: .55; cursor: not-allowed; }
+.secondary {
+  background: #292929;
+  border: 1px solid #555;
+  color: white;
 }
-.input-wrap{position:relative}
-.input-wrap input{
- width:100%;
- padding:17px 15px;
- border-radius:11px;
- border:1px solid #51432b;
- background:#090909;color:#fff;
- outline:none;font-size:14px;
+.status-box {
+  display: none;
+  margin-top: 22px;
+  padding: 18px;
+  border: 1px solid #4d3c1c;
+  border-radius: 14px;
+  background: #0c0c0c;
 }
-.input-wrap input:focus{border-color:var(--gold)}
-.options{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:14px;margin-top:20px;
+.status-title {
+  color: var(--gold);
+  font-weight: 800;
+  margin-bottom: 8px;
 }
-.field label{
- display:block;color:#aaa;
- font-size:12px;margin-bottom:9px;
+.status-message {
+  color: #ddd;
+  font-size: 13px;
+  overflow-wrap: anywhere;
 }
-.field select{
- width:100%;padding:13px;
- border-radius:10px;
- background:#090909;color:#fff;
- border:1px solid #51432b;
- outline:none;
+.progress-track {
+  height: 9px;
+  background: #292929;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-top: 14px;
 }
-.platforms{
- display:flex;flex-wrap:wrap;
- justify-content:center;gap:9px;
- margin:22px 0;
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #b77c18, #ffe18a);
+  border-radius: 20px;
+  transition: width .4s;
 }
-.platform{
- padding:9px 13px;
- background:#202020;
- border:1px solid #333;
- border-radius:30px;
- color:#ddd;font-size:11px;
+.features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 20px;
 }
-.platform.active{
- color:var(--gold);
- border-color:var(--gold);
+.feature {
+  padding: 15px 8px;
+  background: #151515;
+  border: 1px solid #332a18;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 13px;
 }
-.download-btn{
- width:100%;padding:17px;
- border:0;border-radius:11px;
- background:linear-gradient(100deg,#a97820,#ffdf88,#c18b2e);
- color:#171006;
- font-weight:800;
- font-size:15px;
- letter-spacing:1px;
- box-shadow:0 5px 22px #e6b84f33;
+.feature strong {
+  display: block;
+  color: var(--gold);
+  font-size: 19px;
 }
-.download-btn:disabled{opacity:.5;cursor:not-allowed}
-.message{
- display:none;margin-top:18px;
- padding:14px;border-radius:10px;
- background:#202020;color:#ddd;
- font-size:13px;line-height:1.7;
+.note {
+  color: #999;
+  font-size: 11px;
+  text-align: center;
+  margin-top: 16px;
+  line-height: 2;
 }
-.message.show{display:block}
-.progress-area{display:none;margin-top:20px}
-.progress-area.show{display:block}
-.progress-head{
- display:flex;justify-content:space-between;
- font-size:12px;color:#ddd;margin-bottom:10px;
+footer {
+  text-align: center;
+  color: #777;
+  padding: 25px 10px;
+  font-size: 12px;
 }
-.progress-track{
- height:9px;background:#303030;
- border-radius:20px;overflow:hidden;
+footer span { color: var(--gold); }
+.api-status {
+  display: inline-block;
+  margin-top: 12px;
+  border: 1px solid #176a43;
+  background: #0d2419;
+  color: #55e59d;
+  border-radius: 30px;
+  padding: 5px 13px;
+  font-size: 12px;
 }
-.progress-fill{
- width:0;height:100%;
- background:linear-gradient(90deg,#ad7825,#ffe18b);
- transition:width .4s;
-}
-.result{
- display:none;margin-top:20px;
- border:1px solid #3c654a;
- background:#102117;
- padding:17px;border-radius:12px;
-}
-.result.show{display:block}
-.result h3{color:#67e6a0;font-size:14px}
-.result p{font-size:12px;color:#bbb;margin:9px 0}
-.file-btn{
- display:block;text-align:center;
- text-decoration:none;
- background:#2eae6b;color:#fff;
- padding:13px;border-radius:9px;
- font-weight:700;font-size:13px;
-}
-.features{
- display:grid;grid-template-columns:repeat(3,1fr);
- gap:12px;margin-top:25px;
-}
-.feature{
- background:#141414;border:1px solid #292929;
- border-radius:12px;padding:18px 10px;
- text-align:center;
-}
-.feature .icon{font-size:25px}
-.feature h4{font-size:12px;color:var(--gold);margin:10px 0 5px}
-.feature p{font-size:10px;color:#888;line-height:1.5}
-.info{
- margin-top:28px;padding:20px;
- border:1px solid #30271a;
- border-radius:13px;
- background:#111;
-}
-.info h3{color:var(--gold);font-size:14px;margin-bottom:10px}
-.info p{font-size:12px;color:#999;line-height:1.9}
-footer{
- border-top:1px solid #292019;
- text-align:center;padding:25px 12px;
- color:#777;font-size:11px;line-height:2;
-}
-footer strong{color:var(--gold)}
-@media(max-width:520px){
- header{padding:0 15px;height:65px}
- .brand h2{font-size:11px}
- .logo{width:39px;height:39px;font-size:21px}
- main{padding:20px 12px 40px}
- .downloader{padding:17px}
- .options{grid-template-columns:1fr}
- .features{grid-template-columns:1fr 1fr}
+#result { margin-top: 12px; }
+.error { color: #ff7777; }
+.success { color: #55e59d; }
+@media(max-width:420px) {
+  .panel { padding: 17px; }
+  .logo { font-size: 25px; }
 }
 </style>
 </head>
@@ -229,307 +198,224 @@ footer strong{color:var(--gold)}
 <body>
 
 <header>
- <div class="brand">
-  <div class="logo">🐍</div>
-  <div>
-   <h2>FAST COBRA</h2>
-   <small>PREMIUM DOWNLOADER</small>
-  </div>
- </div>
- <div class="status">● API V2</div>
+  <div class="logo">🐍 THE FAST COBRA</div>
+  <div class="tagline">PREMIUM DOWNLOADER</div>
+  <div class="api-status" id="apiStatus">● API CHECKING...</div>
 </header>
 
-<main>
+<main class="container">
 
-<section class="hero">
- <div class="cobra">🐍</div>
- <h1>THE FAST COBRA</h1>
- <div class="goldline"></div>
- <p>ULTIMATE VIDEO & AUDIO DOWNLOADER</p>
- <p>Fast • Simple • Powerful</p>
-</section>
+  <section class="hero">
+    <h1>FAST VIDEO <span>DOWNLOADER</span></h1>
+    <p>اپنا ویڈیو لنک درج کریں اور ڈاؤنلوڈ شروع کریں</p>
+  </section>
 
-<section class="downloader">
+  <section class="panel">
+    <label class="label" for="videoUrl">🔗 ویڈیو کا لنک یہاں پیسٹ کریں</label>
 
- <div class="section-title">↓ Download Your Media</div>
+    <input
+      id="videoUrl"
+      type="url"
+      placeholder="https://example.com/video"
+      autocomplete="url"
+    >
 
- <div class="input-wrap">
-  <input id="videoUrl" type="url"
-   placeholder="Paste your video URL here..."
-   autocomplete="url">
- </div>
+    <button class="primary" id="downloadBtn" onclick="startDownload()">
+      ⬇ DOWNLOAD NOW
+    </button>
 
- <div class="options">
+    <div class="status-box" id="statusBox">
+      <div class="status-title" id="statusTitle">Download Status</div>
+      <div class="status-message" id="statusMessage">Preparing...</div>
+      <div class="progress-track">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+      <div id="result"></div>
+    </div>
 
-  <div class="field">
-   <label>Download Format</label>
-   <select id="mediaType">
-    <option value="video">Video MP4</option>
-    <option value="mp3">Audio MP3</option>
-   </select>
-  </div>
+    <div class="note">
+      صرف وہی ویڈیوز ڈاؤنلوڈ کریں جنہیں ڈاؤنلوڈ کرنے کی آپ کو اجازت ہو۔
+      کچھ ویب سائٹس یا ویڈیوز ڈاؤنلوڈ کی اجازت نہیں دیتیں۔
+    </div>
+  </section>
 
-  <div class="field">
-   <label>Video Quality</label>
-   <select id="quality">
-    <option value="best">Best Available</option>
-    <option value="1080p">1080p HD</option>
-    <option value="720p">720p HD</option>
-    <option value="480p">480p</option>
-    <option value="360p">360p</option>
-   </select>
-  </div>
-
- </div>
-
- <div class="platforms">
-  <span class="platform">YouTube</span>
-  <span class="platform">TikTok</span>
-  <span class="platform">Facebook</span>
-  <span class="platform">Instagram</span>
-  <span class="platform active">Direct MP4</span>
- </div>
-
- <button class="download-btn" id="downloadBtn"
- onclick="startDownload()">
-  ↓ DOWNLOAD NOW
- </button>
-
- <div class="message" id="message"></div>
-
- <div class="progress-area" id="progressArea">
-  <div class="progress-head">
-   <span id="progressText">Preparing download...</span>
-   <span id="progressPercent">0%</span>
-  </div>
-  <div class="progress-track">
-   <div class="progress-fill" id="progressFill"></div>
-  </div>
- </div>
-
- <div class="result" id="result">
-  <h3>✓ Download Ready!</h3>
-  <p id="fileTitle"></p>
-  <a class="file-btn" id="fileLink" href="#">
-   ↓ DOWNLOAD FILE
-  </a>
- </div>
-
-</section>
-
-<section class="features">
-
- <div class="feature">
-  <div class="icon">🎬</div>
-  <h4>Video Download</h4>
-  <p>Supported video formats</p>
- </div>
-
- <div class="feature">
-  <div class="icon">🎵</div>
-  <h4>MP3 Audio</h4>
-  <p>Audio conversion support</p>
- </div>
-
- <div class="feature">
-  <div class="icon">⚡</div>
-  <h4>Fast Engine</h4>
-  <p>Background processing</p>
- </div>
-
- <div class="feature">
-  <div class="icon">📺</div>
-  <h4>HD Quality</h4>
-  <p>Available video qualities</p>
- </div>
-
- <div class="feature">
-  <div class="icon">📱</div>
-  <h4>Mobile Friendly</h4>
-  <p>Responsive design</p>
- </div>
-
- <div class="feature">
-  <div class="icon">🔒</div>
-  <h4>Simple & Safe</h4>
-  <p>Clear download status</p>
- </div>
-
-</section>
-
-<section class="info">
- <h3>About The Fast Cobra</h3>
- <p>
- The Fast Cobra is a video and audio downloading interface.
- Paste a supported media URL, select your format and quality,
- and check the download progress.
- <br><br>
- Only download content you own or are authorized to save.
- Platform restrictions and availability may apply.
- </p>
-</section>
+  <section class="features">
+    <div class="feature"><strong>⚡</strong>Fast Processing</div>
+    <div class="feature"><strong>🎬</strong>Video Download</div>
+    <div class="feature"><strong>📱</strong>Mobile Friendly</div>
+    <div class="feature"><strong>🔒</strong>Secure Connection</div>
+  </section>
 
 </main>
 
 <footer>
- <strong>🐍 THE FAST COBRA DOWNLOADER</strong>
- <br>PREMIUM EDITION 3.0
- <br>© 2026 All Rights Reserved
+  © 2026 <span>THE FAST COBRA DOWNLOADER</span><br>
+  Powered by Fast Cobra API
 </footer>
 
 <script>
+"use strict";
 
-// IMPORTANT:
-// Replace this with your HTTPS-enabled Enzonic domain.
-// GitHub Pages cannot call an HTTP API due to mixed-content
-// browser security restrictions.
+/* YOUR LIVE HTTPS API */
+const API_BASE = "https://fastcobra.enzonic.dev";
 
-const API_BASE = "https://YOUR-HTTPS-API-DOMAIN";
+const videoInput = document.getElementById("videoUrl");
+const downloadBtn = document.getElementById("downloadBtn");
+const statusBox = document.getElementById("statusBox");
+const statusTitle = document.getElementById("statusTitle");
+const statusMessage = document.getElementById("statusMessage");
+const progressBar = document.getElementById("progressBar");
+const resultBox = document.getElementById("result");
+const apiStatus = document.getElementById("apiStatus");
 
-let currentJob = null;
 let polling = false;
 
-const $ = id => document.getElementById(id);
-
-function showMessage(text){
- const box = $("message");
- box.textContent = text;
- box.classList.add("show");
+function showStatus(title, message, progress) {
+  statusBox.style.display = "block";
+  statusTitle.textContent = title;
+  statusMessage.textContent = message;
+  progressBar.style.width = Math.max(0, Math.min(100, progress)) + "%";
 }
 
-function hideMessage(){
- $("message").classList.remove("show");
-}
-
-function setProgress(value,text){
- const p = Math.max(0,Math.min(100,Number(value)||0));
- $("progressFill").style.width = p + "%";
- $("progressPercent").textContent = p + "%";
- $("progressText").textContent = text || "Downloading...";
-}
-
-async function startDownload(){
-
- if(API_BASE.includes("YOUR-HTTPS-API-DOMAIN")){
-  showMessage(
-   "API HTTPS setup is still required. Configure a secure domain in Enzonic Networking before downloading."
-  );
-  return;
- }
-
- const url = $("videoUrl").value.trim();
-
- if(!url){
-  showMessage("Please paste a video URL first.");
-  return;
- }
-
- try{
-  const parsed = new URL(url);
-  if(!["http:","https:"].includes(parsed.protocol)){
-   throw new Error("Invalid URL");
+function validHttpUrl(value) {
+  try {
+    const url = new URL(value);
+    return url.protocol === "http:" || url.protocol === "https:";
+  } catch {
+    return false;
   }
- }catch(e){
-  showMessage("Please enter a valid video URL.");
-  return;
- }
-
- $("downloadBtn").disabled = true;
- $("result").classList.remove("show");
- $("progressArea").classList.add("show");
- hideMessage();
- setProgress(0,"Starting download...");
-
- try{
-
-  const response = await fetch(API_BASE + "/api/download",{
-   method:"POST",
-   headers:{"Content-Type":"application/json"},
-   body:JSON.stringify({
-    url:url,
-    quality:$("quality").value,
-    type:$("mediaType").value
-   })
-  });
-
-  const data = await response.json();
-
-  if(!response.ok){
-   throw new Error(data.error || "Unable to start download.");
-  }
-
-  currentJob = data.job_id;
-  polling = true;
-  pollStatus();
-
- }catch(error){
-  showMessage("Error: " + error.message);
-  $("downloadBtn").disabled = false;
-  $("progressArea").classList.remove("show");
- }
 }
 
-async function pollStatus(){
+async function checkAPI() {
+  try {
+    const response = await fetch(API_BASE + "/health", {
+      method: "GET",
+      cache: "no-store"
+    });
 
- while(polling && currentJob){
+    if (!response.ok) throw new Error("API not responding");
 
-  try{
+    const data = await response.json();
+    apiStatus.textContent = "● API ONLINE";
+    apiStatus.style.color = "#55e59d";
+    return data;
+  } catch (error) {
+    apiStatus.textContent = "● API CONNECTION ERROR";
+    apiStatus.style.color = "#ff7777";
+    return null;
+  }
+}
 
-   const response = await fetch(
-    API_BASE + "/api/status/" + encodeURIComponent(currentJob),
-    {cache:"no-store"}
-   );
+async function startDownload() {
+  if (polling) return;
 
-   const data = await response.json();
+  const url = videoInput.value.trim();
 
-   if(!response.ok){
-    throw new Error(data.error || "Status check failed.");
-   }
-
-   setProgress(
-    data.progress,
-    data.status === "processing"
-     ? "Preparing your file..."
-     : "Downloading..."
-   );
-
-   if(data.status === "finished"){
-
-    polling = false;
-
-    $("fileTitle").textContent =
-     data.title || data.filename || "Your file is ready.";
-
-    $("fileLink").href =
-     API_BASE + data.download_url;
-
-    $("result").classList.add("show");
-    setProgress(100,"Download ready!");
-
-    $("downloadBtn").disabled = false;
+  if (!url) {
+    alert("براہ کرم پہلے ویڈیو لنک درج کریں۔");
+    videoInput.focus();
     return;
-   }
-
-   if(data.status === "error"){
-    throw new Error(data.error || "Download failed.");
-   }
-
-  }catch(error){
-
-   polling = false;
-   showMessage(error.message);
-   $("downloadBtn").disabled = false;
-   return;
   }
 
-  await new Promise(resolve=>setTimeout(resolve,2000));
- }
+  if (!validHttpUrl(url)) {
+    alert("درست HTTP یا HTTPS ویڈیو لنک درج کریں۔");
+    return;
+  }
+
+  polling = true;
+  downloadBtn.disabled = true;
+  downloadBtn.textContent = "PLEASE WAIT...";
+  resultBox.innerHTML = "";
+
+  showStatus("REQUEST SENDING", "سرور سے رابطہ کیا جا رہا ہے...", 5);
+
+  try {
+    const response = await fetch(API_BASE + "/api/download", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ url: url })
+    });
+
+    const data = await response.json().catch(() => ({}));
+
+    if (!response.ok || !data.job_id) {
+      throw new Error(data.error || data.message || "Download request failed.");
+    }
+
+    showStatus("DOWNLOAD STARTED", "آپ کی ویڈیو سرور پر تیار ہو رہی ہے...", 15);
+
+    await monitorDownload(data.job_id);
+
+  } catch (error) {
+    showStatus("DOWNLOAD ERROR", error.message || "سرور سے رابطہ نہیں ہو سکا۔", 0);
+    statusMessage.classList.add("error");
+  } finally {
+    polling = false;
+    downloadBtn.disabled = false;
+    downloadBtn.textContent = "⬇ DOWNLOAD NOW";
+  }
 }
 
-$("mediaType").addEventListener("change",()=>{
- $("quality").disabled = $("mediaType").value === "mp3";
-});
+async function monitorDownload(jobId) {
+  let attempts = 0;
+  const maxAttempts = 240;
 
+  while (attempts < maxAttempts) {
+    attempts++;
+
+    await new Promise(resolve => setTimeout(resolve, 3000));
+
+    const response = await fetch(
+      API_BASE + "/api/status/" + encodeURIComponent(jobId),
+      { cache: "no-store" }
+    );
+
+    const data = await response.json().catch(() => ({}));
+
+    if (!response.ok) {
+      throw new Error(data.error || data.message || "Status check failed.");
+    }
+
+    const status = String(data.status || "").toLowerCase();
+
+    if (["finished", "completed", "complete", "done", "success"].includes(status)) {
+      showStatus("DOWNLOAD READY", "آپ کی ویڈیو تیار ہے۔", 100);
+      statusMessage.classList.add("success");
+
+      const filePath = data.download_url || ("/api/file/" + encodeURIComponent(jobId));
+      const fileUrl = new URL(filePath, API_BASE).href;
+
+      resultBox.innerHTML = "";
+
+      const link = document.createElement("a");
+      link.href = fileUrl;
+      link.className = "download-link primary";
+      link.textContent = "⬇ DOWNLOAD YOUR VIDEO";
+      link.setAttribute("download", "");
+
+      resultBox.appendChild(link);
+      return;
+    }
+
+    if (["failed", "error"].includes(status)) {
+      throw new Error(data.error || data.message || "Video processing failed.");
+    }
+
+    const progress = Math.min(90, 15 + Math.floor(attempts / 2));
+    showStatus(
+      "PROCESSING VIDEO",
+      data.message || "سرور ویڈیو تیار کر رہا ہے۔ براہ کرم انتظار کریں...",
+      progress
+    );
+  }
+
+  throw new Error("وقت ختم ہو گیا۔ دوبارہ کوشش کریں۔");
+}
+
+checkAPI();
 </script>
+
 </body>
 </html>
