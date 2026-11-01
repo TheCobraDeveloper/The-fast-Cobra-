@@ -1,665 +1,898 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ur" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>THE FAST COBRA | Premium Downloader 5.0</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="theme-color" content="#080808">
+<meta name="description" content="The Fast Cobra Premium Video Downloader">
+<title>The Fast Cobra Downloader 5.0</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 :root{
- --gold:#e9bd55;
- --gold2:#ffdf8a;
- --bg:#080808;
- --panel:#151515;
- --muted:#aaa;
- --green:#20c878;
+ --gold:#ffc94f;
+ --gold2:#ffe9a0;
+ --dark:#080808;
+ --green:#20e878;
+ --muted:#c7c7c7;
 }
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
  margin:0;
- font-family:Arial,sans-serif;
  color:#fff;
- background:linear-gradient(145deg,#050505,#17130a,#050505);
+ font-family:'Cairo',sans-serif;
+ background:
+ radial-gradient(ellipse at 50% 0%,#49300c 0%,transparent 42%),
+ linear-gradient(#080808,#090909 65%,#120d03);
  min-height:100vh;
 }
-button,input,select{font:inherit}
-
-.welcome{
- position:fixed;
- inset:0;
- z-index:20;
+button,input,select{font-family:inherit}
+button{cursor:pointer}
+.gold-line{
+ height:3px;
+ background:linear-gradient(90deg,transparent,#ffb51f,#fff1a5,#ffb51f,transparent);
+ box-shadow:0 0 12px #ffb51f;
+}
+header{
+ position:relative;
+ overflow:hidden;
+ padding:22px 12px 18px;
+ text-align:center;
+ border-bottom:1px solid #88601d;
+ background:linear-gradient(110deg,#080808,#1b1205,#080808);
+}
+.header-inner{
+ max-width:900px;
+ margin:auto;
  display:flex;
  align-items:center;
  justify-content:center;
- text-align:center;
- background:radial-gradient(circle,#30230b,#080808 70%);
- transition:opacity .4s;
+ gap:20px;
+ flex-wrap:wrap;
 }
-.welcome.hide{opacity:0;pointer-events:none}
-.welcome-content{padding:20px}
-.welcome img{
+.logo-frame{
  width:145px;
  height:145px;
+ flex:0 0 145px;
+ border:3px solid var(--gold);
+ border-radius:50%;
+ padding:4px;
+ background:#080808;
+ box-shadow:0 0 20px #e5a52c99,0 0 45px #b77b1b44;
+ overflow:hidden;
+}
+.logo-frame img{
+ width:100%;
+ height:100%;
  object-fit:cover;
  border-radius:50%;
- border:3px solid var(--gold);
- box-shadow:0 0 30px #d6a83c66;
+}
+.brand-area{max-width:570px}
+.brand{
+ color:var(--gold);
+ font-size:clamp(27px,6vw,48px);
+ line-height:1.2;
+ font-weight:900;
+ text-shadow:0 0 15px #d58e19,2px 3px 2px #000;
+}
+.premium{
+ font-size:clamp(13px,3vw,20px);
+ color:#fff;
+ font-weight:900;
+ letter-spacing:2px;
+ margin-top:7px;
+}
+.premium span{color:var(--gold)}
+.founder{
+ max-width:440px;
+ margin:17px auto 0;
+ padding:11px 15px;
+ border:2px solid #b7862b;
+ border-radius:15px;
+ background:linear-gradient(110deg,#211605,#080808,#211605);
+ box-shadow:0 0 17px #b47c1c55,inset 0 0 12px #bd861d22;
+}
+.founder-name{
+ display:block;
+ color:var(--gold2);
+ font-size:clamp(22px,5vw,30px);
+ font-weight:900;
+ letter-spacing:1px;
+ text-shadow:0 0 12px #e3a72d66;
+}
+.founder-son{
+ display:block;
+ font-size:13px;
+ font-weight:800;
+ color:white;
+ direction:ltr;
+}
+.founder-role{
+ display:inline-block;
+ margin-top:7px;
+ padding:4px 22px;
+ border-radius:20px;
+ color:#211500;
+ font-size:14px;
+ font-weight:900;
+ background:linear-gradient(90deg,#bd841d,#fff0a0,#bd841d);
+ box-shadow:0 0 12px #d99c28;
+}
+.api-badge{
+ display:inline-flex;
+ align-items:center;
+ gap:8px;
+ margin-top:12px;
+ padding:6px 18px;
+ border:1px solid #168f4d;
+ border-radius:30px;
+ color:#58f49b;
+ background:#071c10;
+ font-size:12px;
+ font-weight:800;
+}
+.api-dot{
+ width:9px;height:9px;border-radius:50%;
+ background:#28e978;
+ box-shadow:0 0 10px #28e978;
+}
+.container{
+ width:min(96%,760px);
+ margin:24px auto;
+}
+.welcome{
+ position:relative;
+ text-align:center;
+ padding:13px 8px;
+ margin:0 0 20px;
+ border:2px solid #dba32f;
+ border-radius:50px;
+ background:linear-gradient(90deg,#090909,#281a05,#090909);
+ box-shadow:0 0 15px #d89d2c66,inset 0 0 12px #b57c1b33;
 }
 .welcome h1{
- color:var(--gold);
- font-size:30px;
- margin:18px 0 8px;
-}
-.welcome .managed{
+ margin:0;
  color:#fff;
- font-size:14px;
- letter-spacing:2px;
- margin:15px 0 6px;
+ font-size:clamp(19px,4.5vw,30px);
+ font-weight:900;
 }
-.welcome .founder-name{
- color:var(--gold2);
- font-size:23px;
- font-weight:bold;
- margin:5px 0 13px;
-}
-.welcome p{
- color:#ddd;
- letter-spacing:3px;
- font-size:12px;
-}
-.welcome small{color:var(--gold2)}
-
-header{
+.welcome h1 span{color:var(--gold)}
+.intro{
  text-align:center;
- padding:22px 12px 14px;
- border-bottom:1px solid #8c692a;
- background:#090909;
-}
-.logo{
- width:82px;
- height:82px;
- object-fit:cover;
- border:2px solid var(--gold);
- border-radius:50%;
- box-shadow:0 0 18px #e9bd5544;
-}
-header h1{
- color:var(--gold);
- margin:9px 0 4px;
- font-size:27px;
-}
-header p{
- color:#ccc;
- margin:4px;
- font-size:12px;
- letter-spacing:2px;
-}
-.founder{
- margin:13px auto 0;
- max-width:500px;
- padding:10px;
- border:1px solid #806126;
- border-radius:12px;
- background:#17130b;
- line-height:1.7;
- font-size:13px;
-}
-.founder strong{color:var(--gold2)}
-
-main{
- max-width:600px;
- margin:20px auto;
- padding:0 14px 35px;
-}
-.panel{
- background:linear-gradient(145deg,#191919,#101010);
- border:1px solid #705522;
- border-radius:17px;
- padding:18px;
- margin-bottom:16px;
- box-shadow:0 8px 25px #0008;
-}
-h2{
- font-size:18px;
- color:var(--gold);
- margin:0 0 14px;
-}
-label{
- display:block;
- color:#ddd;
- font-size:13px;
- margin:13px 0 7px;
-}
-input,select{
- width:100%;
- padding:15px 13px;
- border-radius:10px;
- border:1px solid #705522;
- background:#080808;
- color:white;
- outline:none;
-}
-input:focus,select:focus{
- border-color:var(--gold);
- box-shadow:0 0 8px #e9bd5544;
+ color:#eee;
+ font-size:15px;
+ margin:15px 0;
 }
 .platforms{
  display:grid;
  grid-template-columns:repeat(4,1fr);
- gap:8px;
+ gap:10px;
+ margin:17px 0 20px;
 }
 .platform{
- padding:12px 4px;
- border-radius:10px;
- border:1px solid #705522;
- background:#111;
- color:#fff;
- font-size:12px;
- cursor:pointer;
+ min-width:0;
+ border-radius:12px;
+ padding:10px 3px;
+ text-align:center;
+ font-size:13px;
+ font-weight:900;
+ color:white;
+ text-decoration:none;
+ box-shadow:0 4px 12px #0008;
+ border:1px solid #ffffff44;
 }
-.platform.active{
- background:#4a3510;
- border-color:var(--gold);
+.platform .symbol{
+ display:block;
+ font-size:24px;
+ line-height:1.3;
+}
+.youtube{background:linear-gradient(135deg,#ff1717,#a50000)}
+.facebook{background:linear-gradient(135deg,#2588ff,#003eaa)}
+.instagram{background:linear-gradient(135deg,#ffb000,#ed1685,#7622c9)}
+.tiktok{background:linear-gradient(135deg,#222,#050505);border-color:#666}
+.panel{
+ border:2px solid #d69b25;
+ border-radius:23px;
+ padding:18px;
+ background:linear-gradient(145deg,#17130b,#090909 55%,#171109);
+ box-shadow:0 0 17px #d4972b77,inset 0 0 20px #b67c2022;
+}
+.field{margin-bottom:13px}
+.label{
+ display:block;
  color:var(--gold2);
+ font-size:16px;
+ font-weight:900;
+ margin:0 0 7px;
 }
-.row{
+.input-wrap{position:relative}
+input,select{
+ width:100%;
+ min-height:51px;
+ border:1px solid #777;
+ border-radius:14px;
+ padding:11px 14px;
+ background:#090909;
+ color:white;
+ outline:none;
+ font-size:15px;
+}
+input{
+ direction:ltr;
+ text-align:left;
+ padding-right:48px;
+}
+input:focus,select:focus{
+ border-color:var(--gold);
+ box-shadow:0 0 10px #d69b2b66;
+}
+.copy-btn{
+ position:absolute;
+ right:7px;
+ top:7px;
+ width:37px;
+ height:37px;
+ padding:0;
+ border:1px solid #b58a36;
+ border-radius:9px;
+ background:#241b0a;
+ color:var(--gold);
+ font-size:19px;
+}
+.select-grid{
  display:grid;
  grid-template-columns:1fr 1fr;
- gap:10px;
+ gap:13px;
 }
-.btn{
- border:0;
- border-radius:10px;
- padding:15px;
- font-weight:bold;
- cursor:pointer;
- width:100%;
-}
-.primary{
- background:linear-gradient(100deg,#b8862e,#ffe39a,#c39437);
- color:#171006;
-}
-.secondary{
- background:#292929;
- color:#fff;
- border:1px solid #8b682b;
-}
-.buttons{
- display:grid;
- grid-template-columns:2fr 1fr;
- gap:10px;
- margin-top:17px;
-}
-.btn:disabled{
- opacity:.6;
- cursor:not-allowed;
-}
-.status{
- margin-top:15px;
+.select-box{
  padding:12px;
- border-radius:10px;
- background:#090909;
- border:1px solid #40351e;
- color:#ddd;
- font-size:13px;
- line-height:1.6;
+ border:2px solid #b77c1e;
+ border-radius:17px;
+ background:linear-gradient(140deg,#211807,#090909);
+ box-shadow:0 0 12px #b77c1e44;
 }
-.progress{
- height:11px;
- background:#333;
+.select-box .label{font-size:15px}
+.action-grid{
+ display:grid;
+ grid-template-columns:1.5fr .85fr;
+ gap:12px;
+ margin-top:15px;
+}
+.action{
+ min-height:61px;
+ border-radius:16px;
+ font-size:clamp(15px,3.5vw,21px);
+ font-weight:900;
+}
+.download-btn{
+ border:2px solid #ffe08a;
+ color:#1b1100;
+ background:linear-gradient(110deg,#bd811c,#ffe38b,#d69a2b);
+ box-shadow:0 0 15px #d69a2b88,inset 0 2px 3px #fff8;
+}
+.download-btn:disabled{opacity:.55;cursor:not-allowed}
+.reset-btn{
+ border:2px solid #999;
+ color:white;
+ background:linear-gradient(#333,#090909);
+ box-shadow:0 0 10px #7775;
+}
+.status-box{
+ display:none;
+ margin-top:18px;
+ padding:17px;
+ border:2px solid #b78327;
+ border-radius:18px;
+ background:linear-gradient(110deg,#061207,#080808,#061207);
+ box-shadow:0 0 15px #b17b2555;
+}
+.status-head{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:10px;
+}
+.status-title{
+ color:#39ed75;
+ font-size:clamp(17px,4vw,24px);
+ font-weight:900;
+}
+.status-desc{color:var(--gold2);font-size:14px}
+.percent{
+ color:#38ed7b;
+ font-size:25px;
+ font-weight:900;
+ direction:ltr;
+ text-align:center;
+}
+.completed{color:#38ed7b;font-size:13px;text-align:center}
+.progress-track{
+ height:12px;
  border-radius:20px;
  overflow:hidden;
- margin-top:12px;
+ background:#303030;
+ margin:13px 0 7px;
 }
-.bar{
+.progress-bar{
  height:100%;
  width:0%;
- background:linear-gradient(90deg,#b8862e,#ffe39a);
- transition:width .3s;
+ border-radius:20px;
+ background:linear-gradient(90deg,#12a84c,#5aff9c,#fff);
+ box-shadow:0 0 12px #32ef77;
+ transition:width .4s ease;
 }
-.percent{
- color:var(--gold);
- font-weight:bold;
- margin-top:8px;
+.progress-info{
+ display:flex;
+ justify-content:space-between;
+ color:#ccc;
+ font-size:11px;
+ direction:ltr;
 }
-.ready{
- display:none;
- margin-top:14px;
- padding:14px;
- background:#10251a;
- border:1px solid #20c878;
- border-radius:10px;
+.result-title{
+ color:#ddd;
+ font-size:13px;
+ margin-top:10px;
+ overflow-wrap:anywhere;
 }
-.ready a{
- color:#71f0a9;
- font-weight:bold;
+.file-btn{
+ display:block;
+ width:100%;
+ margin-top:13px;
+ padding:13px 8px;
+ text-align:center;
+ text-decoration:none;
+ border-radius:12px;
+ border:2px solid #ffe08a;
+ color:#1a1000;
+ background:linear-gradient(90deg,#c88b20,#ffe28a,#c88b20);
+ font-size:16px;
+ font-weight:900;
 }
+.file-btn:active{transform:scale(.98)}
+.message{
+ margin-top:10px;
+ font-size:13px;
+ line-height:1.9;
+ overflow-wrap:anywhere;
+}
+.error{color:#ff7777}
+.success{color:#4aff91}
 .note{
+ text-align:center;
+ color:#ddd;
  font-size:12px;
- color:#aaa;
- line-height:1.6;
+ line-height:2;
+ padding:13px 8px;
+}
+.features{
+ display:grid;
+ grid-template-columns:repeat(6,1fr);
+ gap:9px;
+ margin-top:15px;
+}
+.feature{
+ text-align:center;
+ padding:11px 4px;
+ border:2px solid #bd8424;
+ border-radius:14px;
+ background:linear-gradient(145deg,#1c1508,#080808);
+ box-shadow:0 0 9px #b77c1e55;
+ font-size:11px;
+ line-height:1.4;
+}
+.feature .ico{
+ display:block;
+ font-size:25px;
+ color:var(--gold);
 }
 footer{
  text-align:center;
- color:#888;
- padding:20px;
+ padding:24px 10px 35px;
+ border-top:2px solid #7f5a20;
+ color:#ddd;
  font-size:12px;
+ line-height:2;
 }
 footer strong{color:var(--gold)}
-
-@media(max-width:380px){
- .platforms{grid-template-columns:repeat(2,1fr)}
- header h1{font-size:23px}
- .welcome h1{font-size:25px}
- .welcome .founder-name{font-size:20px}
+.footer-name{font-size:15px;color:var(--gold2);font-weight:900}
+.footer-decoration{color:var(--gold);font-size:20px}
+.small-note{color:#999;font-size:10px}
+.welcome-screen{
+ position:fixed;
+ inset:0;
+ z-index:1000;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ padding:20px;
+ background:
+ radial-gradient(ellipse at center,#49300d 0%,#0a0804 55%,#000 100%);
+ transition:opacity .6s,visibility .6s;
+}
+.welcome-screen.hide{opacity:0;visibility:hidden;pointer-events:none}
+.welcome-card{
+ width:min(100%,480px);
+ text-align:center;
+ padding:25px 18px;
+ border:2px solid var(--gold);
+ border-radius:25px;
+ background:linear-gradient(145deg,#211705,#080808);
+ box-shadow:0 0 35px #d99a2b88;
+}
+.welcome-card img{
+ width:125px;height:125px;
+ border:3px solid var(--gold);
+ border-radius:50%;
+ object-fit:cover;
+ box-shadow:0 0 25px #e4a52c88;
+}
+.welcome-card h1{
+ color:var(--gold);
+ font-size:clamp(23px,6vw,34px);
+ margin:13px 0 3px;
+ font-weight:900;
+}
+.welcome-card p{color:#eee;font-size:13px}
+.enter-btn{
+ padding:13px 35px;
+ border:2px solid #ffe5a0;
+ border-radius:13px;
+ background:linear-gradient(90deg,#bd841d,#ffe28a,#bd841d);
+ color:#1a1000;
+ font-size:16px;
+ font-weight:900;
+}
+@media(max-width:520px){
+ .header-inner{gap:10px}
+ .logo-frame{width:115px;height:115px;flex-basis:115px}
+ .platforms{gap:6px}
+ .platform{font-size:11px}
+ .select-grid{gap:8px}
+ .select-box{padding:9px}
+ .panel{padding:12px}
+ .features{grid-template-columns:repeat(3,1fr)}
+ .action-grid{grid-template-columns:1.25fr .8fr}
+ .action{min-height:55px}
 }
 </style>
 </head>
 
 <body>
 
-<!-- WELCOME PAGE -->
-<div class="welcome" id="welcome">
- <div class="welcome-content">
+<div class="welcome-screen" id="welcomeScreen">
+ <div class="welcome-card">
   <img src="IMG-20261101-WA0634.jpg" alt="King Cobra Logo">
-
   <h1>THE FAST COBRA</h1>
-
-  <div class="managed">BUILD MANAGED BY</div>
-
-  <div class="founder-name">AQIB JAVED تیلی</div>
-
-  <p>PREMIUM DOWNLOADER 5.0</p>
-  <small>POWER • SPEED • QUALITY</small>
+  <div class="premium">PREMIUM DOWNLOADER 5.0</div>
+  <p>WELCOME TO THE FAST COBRA DOWNLOADER</p>
+  <div class="founder">
+   <span class="founder-name">AQIB JAVED</span>
+   <span class="founder-son">S/O MUHAMMAD YASEEN TELI</span>
+   <span class="founder-role">FOUNDER &amp; ADMIN</span>
+  </div>
+  <br>
+  <button class="enter-btn" id="enterBtn">ENTER WEBSITE 🐍</button>
  </div>
 </div>
 
-<!-- HEADER -->
-<header>
- <img class="logo" src="IMG-20261101-WA0634.jpg" alt="King Cobra">
+<div class="gold-line"></div>
 
- <h1>THE FAST COBRA</h1>
- <p>PREMIUM DOWNLOADER 5.0</p>
+<header>
+ <div class="header-inner">
+  <div class="logo-frame">
+   <img src="IMG-20261101-WA0634.jpg" alt="King Cobra">
+  </div>
+  <div class="brand-area">
+   <div class="brand">🐍 THE FAST COBRA</div>
+   <div class="premium">PREMIUM DOWNLOADER <span>5.0</span></div>
+   <div style="color:#ffe4a0;font-size:12px;margin-top:5px">DOWNLOAD FASTER • LIVE SMARTER</div>
+  </div>
+ </div>
 
  <div class="founder">
-  <strong>AQIB JAVED</strong><br>
-  S/O MUHAMMAD YASEEN TELI<br>
-  <strong>FOUNDER &amp; ADMIN</strong>
+  <span class="founder-name">AQIB JAVED</span>
+  <span class="founder-son">S/O MUHAMMAD YASEEN TELI</span>
+  <span class="founder-role">★ FOUNDER &amp; ADMIN ★</span>
+ </div>
+
+ <div class="api-badge">
+  <span class="api-dot"></span>
+  <span id="apiStatus">API CHECKING...</span>
  </div>
 </header>
 
-<main>
+<main class="container">
+
+ <section class="welcome">
+  <h1><span>Welcome to</span> The Fast Cobra Downloader</h1>
+ </section>
+
+ <div class="intro">اپنا ویڈیو لنک درج کریں اور اپنی پسند کا فارمیٹ منتخب کریں</div>
+
+ <div class="platforms">
+  <a class="platform youtube" href="https://www.youtube.com/" target="_blank" rel="noopener">
+   <span class="symbol">▶</span>YouTube
+  </a>
+  <a class="platform facebook" href="https://www.facebook.com/" target="_blank" rel="noopener">
+   <span class="symbol">f</span>Facebook
+  </a>
+  <a class="platform instagram" href="https://www.instagram.com/" target="_blank" rel="noopener">
+   <span class="symbol">◎</span>Instagram
+  </a>
+  <a class="platform tiktok" href="https://www.tiktok.com/" target="_blank" rel="noopener">
+   <span class="symbol">♪</span>TikTok
+  </a>
+ </div>
 
  <section class="panel">
-  <h2>DOWNLOAD YOUR VIDEO</h2>
 
-  <!-- LINK BOX AT TOP -->
-  <label for="url">PASTE VIDEO LINK HERE</label>
-  <input
-   id="url"
-   type="url"
-   placeholder="Paste YouTube, Facebook, Instagram or TikTok link"
-  >
-
-  <label>SELECT PLATFORM</label>
-
-  <div class="platforms">
-   <button class="platform" data-platform="YouTube">YouTube</button>
-   <button class="platform" data-platform="Facebook">Facebook</button>
-   <button class="platform" data-platform="Instagram">Instagram</button>
-   <button class="platform" data-platform="TikTok">TikTok</button>
+  <div class="field">
+   <label class="label" for="videoUrl">🔗 ویڈیو کا لنک</label>
+   <div class="input-wrap">
+    <input id="videoUrl" type="url" placeholder="https://..." autocomplete="url">
+    <button class="copy-btn" id="pasteBtn" type="button" title="Paste link">▣</button>
+   </div>
   </div>
 
-  <div class="row">
-   <div>
-    <label for="type">FORMAT</label>
-    <select id="type">
-     <option value="mp4">MP4 Video</option>
+  <div class="select-grid">
+   <div class="select-box">
+    <label class="label" for="mediaType">📁 فارمیٹ</label>
+    <select id="mediaType">
+     <option value="video">MP4 Video</option>
      <option value="mp3">MP3 Audio</option>
     </select>
    </div>
-
-   <div>
-    <label for="quality">VIDEO QUALITY</label>
+   <div class="select-box">
+    <label class="label" for="quality">🎬 ویڈیو کوالٹی</label>
     <select id="quality">
      <option value="best">Best Available</option>
-     <option value="1080">1080p</option>
-     <option value="720">720p</option>
-     <option value="480">480p</option>
-     <option value="360">360p</option>
+     <option value="1080p">1080p</option>
+     <option value="720p">720p</option>
+     <option value="480p">480p</option>
+     <option value="360p">360p</option>
     </select>
    </div>
   </div>
 
-  <div class="buttons">
-   <button class="btn primary" id="downloadBtn">
-    ⬇ DOWNLOAD NOW
-   </button>
-   <button class="btn secondary" id="resetBtn">
-    RESET
-   </button>
+  <div class="action-grid">
+   <button class="action download-btn" id="downloadBtn" type="button">⬇ DOWNLOAD NOW</button>
+   <button class="action reset-btn" id="resetBtn" type="button">↻ RESET</button>
   </div>
 
-  <div class="status" id="status">
-   Ready! Paste your video link to start.
-  </div>
-
-  <div class="progress">
-   <div class="bar" id="bar"></div>
-  </div>
-
-  <div class="percent" id="percent">0%</div>
-
-  <div class="ready" id="ready">
-   <strong style="color:#71f0a9">DOWNLOAD READY!</strong>
-   <p>Your file is ready.</p>
-   <a id="downloadLink" href="#" target="_blank" rel="noopener">
-    DOWNLOAD FILE
-   </a>
+  <div class="status-box" id="statusBox" aria-live="polite">
+   <div class="status-head">
+    <div>
+     <div class="status-title" id="statusTitle">DOWNLOAD STATUS</div>
+     <div class="status-desc" id="statusDesc">آپ کی فائل تیار کی جا رہی ہے۔</div>
+    </div>
+    <div>
+     <div class="percent" id="percent">0%</div>
+     <div class="completed" id="completed">Processing</div>
+    </div>
+   </div>
+   <div class="progress-track">
+    <div class="progress-bar" id="progressBar"></div>
+   </div>
+   <div class="progress-info">
+    <span id="progressLabel">0%</span>
+    <span id="speedLabel">Waiting...</span>
+   </div>
+   <div class="result-title" id="resultTitle"></div>
+   <div id="resultArea"></div>
+   <div class="message" id="statusMessage"></div>
   </div>
  </section>
 
- <section class="panel">
-  <h2>SUPPORTED PLATFORMS</h2>
+ <div class="note">
+  MP3 کے لیے سرور پر FFmpeg ضروری ہے۔<br>
+  منتخب کوالٹی اسی وقت ملے گی جب اصل ویڈیو میں دستیاب ہو۔<br>
+  صرف اپنی یا اجازت والی ویڈیوز ڈاؤنلوڈ کریں۔
+ </div>
 
-  <p class="note">
-   YouTube • Facebook • Instagram • TikTok
-  </p>
-
-  <p class="note">
-   MP4 Video and MP3 Audio download options.
-   Available quality depends on the original video and server support.
-  </p>
+ <section class="features">
+  <div class="feature"><span class="ico">⚡</span>Fast<br>Processing</div>
+  <div class="feature"><span class="ico">♫</span>MP3<br>Audio</div>
+  <div class="feature"><span class="ico">🎞</span>MP4<br>Video</div>
+  <div class="feature"><span class="ico">▣</span>Mobile<br>Friendly</div>
+  <div class="feature"><span class="ico">▥</span>Live<br>Progress</div>
+  <div class="feature"><span class="ico">🔒</span>HTTPS<br>Connection</div>
  </section>
 
 </main>
 
 <footer>
- <strong>THE FAST COBRA</strong><br>
- Premium Downloader 5.0<br>
- BUILD MANAGED BY AQIB JAVED تیلی<br>
- © 2026 All Rights Reserved
+ <div class="footer-decoration">✦ ━━━━━━━━━ ✦</div>
+ <strong>© 2026 THE FAST COBRA DOWNLOADER</strong>
+ <div class="footer-name">AQIB JAVED</div>
+ S/O MUHAMMAD YASEEN TELI<br>
+ <strong>FOUNDER &amp; ADMIN</strong>
+ <div class="footer-decoration">✦ ━━━━━━━━━ ✦</div>
+ <div class="small-note">Powered by Fast Cobra API</div>
 </footer>
 
-<script>
-const API = "https://fastcobra.enzonic.dev";
+<div class="gold-line"></div>
 
-const welcome = document.getElementById("welcome");
-const urlInput = document.getElementById("url");
-const typeInput = document.getElementById("type");
-const qualityInput = document.getElementById("quality");
-const statusBox = document.getElementById("status");
-const bar = document.getElementById("bar");
-const percent = document.getElementById("percent");
-const readyBox = document.getElementById("ready");
-const downloadLink = document.getElementById("downloadLink");
-const downloadBtn = document.getElementById("downloadBtn");
+<script>
+"use strict";
+
+/* EXISTING ENZONIC API - DO NOT CHANGE */
+const API_BASE = "https://fastcobra.enzonic.dev";
+
+const el = id => document.getElementById(id);
+
+const videoUrl = el("videoUrl");
+const mediaType = el("mediaType");
+const quality = el("quality");
+const downloadBtn = el("downloadBtn");
+const resetBtn = el("resetBtn");
+const statusBox = el("statusBox");
+const statusTitle = el("statusTitle");
+const statusDesc = el("statusDesc");
+const percent = el("percent");
+const completed = el("completed");
+const progressBar = el("progressBar");
+const progressLabel = el("progressLabel");
+const speedLabel = el("speedLabel");
+const resultTitle = el("resultTitle");
+const resultArea = el("resultArea");
+const statusMessage = el("statusMessage");
 
 let busy = false;
-let pollTimer = null;
+let lastRequestTime = 0;
+let pollController = null;
 
-/* WELCOME PAGE AUTO CLOSE AFTER 2 SECONDS */
-setTimeout(() => {
- welcome.classList.add("hide");
- setTimeout(() => {
-  welcome.style.display = "none";
- }, 450);
-}, 2000);
+function showStatus(title,desc,value){
+ statusBox.style.display = "block";
+ statusTitle.textContent = title;
+ statusDesc.textContent = desc;
+ const p = Math.max(0,Math.min(100,Number(value)||0));
+ percent.textContent = Math.round(p)+"%";
+ progressLabel.textContent = Math.round(p)+"%";
+ progressBar.style.width = p+"%";
+}
 
-/* PLATFORM SELECTION */
-document.querySelectorAll(".platform").forEach(button => {
- button.addEventListener("click", () => {
-  document.querySelectorAll(".platform").forEach(b => {
-   b.classList.remove("active");
-  });
-  button.classList.add("active");
+function safeUrl(value){
+ try{
+  const u = new URL(value);
+  return (u.protocol==="https:" || u.protocol==="http:") && !!u.hostname;
+ }catch(e){
+  return false;
+ }
+}
+
+async function apiRequest(path,options={}){
+ const response = await fetch(API_BASE+path,{
+  ...options,
+  cache:"no-store"
  });
-});
-
-function setStatus(message){
- statusBox.textContent = message;
+ const data = await response.json().catch(()=>({}));
+ if(!response.ok){
+  throw new Error(data.error || data.message || "Server request failed.");
+ }
+ return data;
 }
 
-function resetDisplay(){
- bar.style.width = "0%";
- percent.textContent = "0%";
- readyBox.style.display = "none";
-
- if(pollTimer){
-  clearTimeout(pollTimer);
-  pollTimer = null;
+async function checkApi(){
+ try{
+  const data = await apiRequest("/health");
+  if(data.status!=="ok") throw new Error("API not ready");
+  el("apiStatus").textContent = "API ONLINE";
+  el("apiStatus").style.color = "#58f49b";
+ }catch(e){
+  el("apiStatus").textContent = "API CONNECTION ERROR";
+  el("apiStatus").style.color = "#ff7777";
  }
 }
 
-/* RESET BUTTON */
-document.getElementById("resetBtn").addEventListener("click", () => {
- if(busy) return;
+function setBusy(value){
+ busy = value;
+ downloadBtn.disabled = value;
+ downloadBtn.textContent = value ? "PLEASE WAIT..." : "⬇ DOWNLOAD NOW";
+ resetBtn.disabled = value;
+}
 
- urlInput.value = "";
- typeInput.value = "mp4";
- qualityInput.value = "best";
-
- document.querySelectorAll(".platform").forEach(b => {
-  b.classList.remove("active");
- });
-
- resetDisplay();
- setStatus("Ready! Paste your video link to start.");
-});
-
-/* CHECK SERVER */
-async function checkHealth(){
+async function pasteLink(){
  try{
-  const response = await fetch(API + "/health");
-
-  if(!response.ok){
-   throw new Error("Server unavailable");
+  const text = await navigator.clipboard.readText();
+  if(text){
+   videoUrl.value = text.trim();
+   videoUrl.focus();
+  }else{
+   alert("Clipboard میں کوئی لنک موجود نہیں۔");
   }
-
-  setStatus("Server ONLINE • Ready to download");
-
- }catch(error){
-  setStatus("Server connection could not be checked. You can still try again.");
+ }catch(e){
+  alert("Clipboard اجازت نہیں ملی۔ لنک خود Paste کریں۔");
  }
 }
 
-checkHealth();
+function addDownloadLink(jobId,data){
+ resultArea.replaceChildren();
 
-/* PLATFORM DETECTION */
-function detectPlatform(url){
- const u = url.toLowerCase();
+ let path = data.download_url || ("/api/file/"+encodeURIComponent(jobId));
+ let finalUrl;
 
- if(u.includes("youtube.com") || u.includes("youtu.be")){
-  return "YouTube";
+ try{
+  finalUrl = new URL(path,API_BASE).href;
+ }catch(e){
+  throw new Error("Download link is invalid.");
  }
 
- if(u.includes("facebook.com") || u.includes("fb.watch")){
-  return "Facebook";
- }
+ const link = document.createElement("a");
+ link.href = finalUrl;
+ link.className = "file-btn";
+ link.textContent = "⬇ DOWNLOAD YOUR FILE";
+ link.target = "_blank";
+ link.rel = "noopener";
+ resultArea.appendChild(link);
 
- if(u.includes("instagram.com")){
-  return "Instagram";
- }
-
- if(u.includes("tiktok.com")){
-  return "TikTok";
- }
-
- return "";
+ const hint = document.createElement("div");
+ hint.className = "message";
+ hint.textContent = "فائل کھولنے یا محفوظ کرنے کے لیے اوپر بٹن دبائیں۔ Android میں فائل عموماً Downloads فولڈر میں ملے گی۔";
+ resultArea.appendChild(hint);
 }
 
-/* DOWNLOAD BUTTON */
-downloadBtn.addEventListener("click", startDownload);
+async function monitorJob(jobId){
+ const maxAttempts = 240;
 
-async function startDownload(){
+ for(let i=0;i<maxAttempts;i++){
+  if(pollController && pollController.signal.aborted) return;
 
- if(busy) return;
+  await new Promise(resolve=>setTimeout(resolve,2500));
 
- const url = urlInput.value.trim();
-
- if(!url){
-  setStatus("Please paste a video link first.");
-  urlInput.focus();
-  return;
- }
-
- try{
-  new URL(url);
- }catch(error){
-  setStatus("Please enter a valid video link.");
-  return;
- }
-
- const platform = detectPlatform(url);
-
- if(!platform){
-  setStatus("This platform is not supported by this downloader.");
-  return;
- }
-
- busy = true;
- downloadBtn.disabled = true;
- downloadBtn.textContent = "PLEASE WAIT...";
-
- resetDisplay();
- setStatus("Connecting to server...");
-
- try{
-
-  const response = await fetch(API + "/api/download", {
-   method:"POST",
-   headers:{
-    "Content-Type":"application/json"
-   },
-   body:JSON.stringify({
-    url:url,
-    quality:qualityInput.value,
-    type:typeInput.value
-   })
-  });
-
-  const data = await response.json();
-
-  if(!response.ok || data.error){
-   throw new Error(
-    data.error || data.message || "Download request failed."
-   );
-  }
-
-  const jobId = data.job_id || data.id;
-
-  if(!jobId){
-
-   if(data.download_url || data.url){
-    showReady(data.download_url || data.url);
-    return;
-   }
-
-   throw new Error("Server did not return a download job ID.");
-  }
-
-  setStatus(platform + " link accepted. Download processing...");
-
-  pollStatus(jobId);
-
- }catch(error){
-  setStatus("Error: " + error.message);
-  finishButton();
- }
-}
-
-/* CHECK DOWNLOAD STATUS */
-async function pollStatus(jobId){
-
- try{
-
-  const response = await fetch(
-   API + "/api/status/" + encodeURIComponent(jobId)
+  const data = await apiRequest(
+   "/api/status/"+encodeURIComponent(jobId),
+   {signal:pollController.signal}
   );
-
-  const data = await response.json();
-
-  if(!response.ok){
-   throw new Error(
-    data.error || "Could not check download status."
-   );
-  }
-
-  const progress = Math.max(
-   0,
-   Math.min(100, Number(data.progress || 0))
-  );
-
-  bar.style.width = progress + "%";
-  percent.textContent = progress + "%";
 
   const state = String(data.status || "").toLowerCase();
+  const p = Number(data.progress)||0;
 
-  if(data.download_url || data.file_url){
-   showReady(data.download_url || data.file_url);
+  if(state==="finished"){
+   showStatus("DOWNLOAD READY","آپ کی فائل تیار ہے۔",100);
+   completed.textContent = "Completed";
+   speedLabel.textContent = "100%";
+   resultTitle.textContent = data.title || "Your video";
+   statusMessage.className = "message success";
+   statusMessage.textContent = "سرور نے فائل تیار کر دی ہے۔";
+   addDownloadLink(jobId,data);
    return;
   }
 
-  if(
-   state === "completed" ||
-   state === "complete" ||
-   state === "finished" ||
-   state === "success" ||
-   state === "done"
-  ){
-   showReady(
-    API + "/api/file/" + encodeURIComponent(jobId)
-   );
-   return;
+  if(state==="error" || state==="failed"){
+   throw new Error(data.error || "Download failed.");
   }
 
-  if(state === "error" || state === "failed"){
-   throw new Error(
-    data.error || data.message || "Download failed."
-   );
+  if(state==="processing"){
+   showStatus("PROCESSING VIDEO","ویڈیو کو مطلوبہ فارمیٹ میں تیار کیا جا رہا ہے۔",Math.max(95,p));
+   completed.textContent = "Processing";
+  }else{
+   showStatus("DOWNLOADING VIDEO","آپ کی ویڈیو ڈاؤنلوڈ ہو رہی ہے۔",p);
+   completed.textContent = "Downloading";
   }
 
-  setStatus(
-   data.message || data.status || "Processing your download..."
-  );
+  let details = "";
+  if(data.downloaded_bytes){
+   details = (data.downloaded_bytes/1048576).toFixed(1)+" MB";
+  }
+  if(data.speed){
+   details += " • Speed: "+(data.speed/1048576).toFixed(2)+" MB/s";
+  }
+  if(data.eta){
+   details += " • ETA: "+data.eta+"s";
+  }
+  speedLabel.textContent = details || "Working...";
+ }
 
-  pollTimer = setTimeout(() => {
-   pollStatus(jobId);
-  }, 2000);
+ throw new Error("سرور سے جواب آنے میں بہت وقت لگ گیا۔ دوبارہ کوشش کریں۔");
+}
 
- }catch(error){
+async function startDownload(){
+ const now = Date.now();
 
-  setStatus("Error: " + error.message);
-  finishButton();
+ if(busy || now-lastRequestTime<1000) return;
+ lastRequestTime = now;
 
+ const url = videoUrl.value.trim();
+ const type = mediaType.value;
+ const selectedQuality = quality.value;
+
+ if(!url){
+  alert("براہ کرم ویڈیو لنک درج کریں۔");
+  videoUrl.focus();
+  return;
+ }
+ if(!safeUrl(url)){
+  alert("براہ کرم درست HTTP یا HTTPS لنک درج کریں۔");
+  videoUrl.focus();
+  return;
+ }
+
+ if(pollController) pollController.abort();
+ pollController = new AbortController();
+
+ setBusy(true);
+ statusBox.style.display = "block";
+ resultArea.replaceChildren();
+ resultTitle.textContent = "";
+ statusMessage.textContent = "";
+ statusMessage.className = "message";
+ completed.textContent = "Connecting";
+ speedLabel.textContent = "Connecting...";
+ showStatus("CONNECTING TO SERVER","آپ کی درخواست سرور کو بھیجی جا رہی ہے۔",2);
+
+ try{
+  const data = await apiRequest("/api/download",{
+   method:"POST",
+   headers:{"Content-Type":"application/json"},
+   body:JSON.stringify({
+    url:url,
+    quality:selectedQuality,
+    type:type
+   }),
+   signal:pollController.signal
+  });
+
+  if(!data.job_id){
+   throw new Error("سرور نے Job ID فراہم نہیں کی۔");
+  }
+
+  showStatus("DOWNLOAD STARTED","سرور آپ کی فائل تیار کر رہا ہے۔",5);
+  await monitorJob(data.job_id);
+
+ }catch(e){
+  if(e.name==="AbortError") return;
+  showStatus("DOWNLOAD ERROR","ڈاؤنلوڈ مکمل نہیں ہو سکا۔",0);
+  completed.textContent = "Failed";
+  speedLabel.textContent = "Error";
+  statusMessage.className = "message error";
+  statusMessage.textContent = e.message || "Unknown error";
+
+ }finally{
+  setBusy(false);
  }
 }
 
-/* DOWNLOAD READY */
-function showReady(fileUrl){
+function resetForm(){
+ if(busy){
+  alert("ڈاؤنلوڈ جاری ہے، پہلے اسے مکمل ہونے دیں۔");
+  return;
+ }
+ if(pollController) pollController.abort();
 
- bar.style.width = "100%";
- percent.textContent = "100%";
-
- downloadLink.href = fileUrl;
- readyBox.style.display = "block";
-
- setStatus("Your download is ready!");
-
- finishButton();
+ videoUrl.value = "";
+ mediaType.value = "video";
+ quality.value = "best";
+ quality.disabled = false;
+ quality.style.opacity = "1";
+ statusBox.style.display = "none";
+ resultArea.replaceChildren();
+ resultTitle.textContent = "";
+ statusMessage.textContent = "";
+ progressBar.style.width = "0%";
+ percent.textContent = "0%";
+ progressLabel.textContent = "0%";
+ speedLabel.textContent = "Waiting...";
 }
 
-/* RESTORE BUTTON */
-function finishButton(){
+mediaType.addEventListener("change",()=>{
+ const audio = mediaType.value==="mp3";
+ quality.disabled = audio;
+ quality.style.opacity = audio ? ".45" : "1";
+});
 
- busy = false;
- downloadBtn.disabled = false;
- downloadBtn.textContent = "⬇ DOWNLOAD NOW";
+downloadBtn.addEventListener("click",startDownload);
+resetBtn.addEventListener("click",resetForm);
+el("pasteBtn").addEventListener("click",pasteLink);
 
-}
+el("enterBtn").addEventListener("click",()=>{
+ el("welcomeScreen").classList.add("hide");
+});
+
+checkApi();
 </script>
-
 </body>
 </html>
