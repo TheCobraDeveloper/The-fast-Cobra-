@@ -6,134 +6,283 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>THE FAST COBRA | Premium Downloader 5.0</title>
 <meta name="theme-color" content="#080808">
+
 <style>
 :root{
-  --gold:#e9bd55;
-  --gold2:#ffdf8a;
-  --bg:#080808;
-  --panel:#151515;
-  --muted:#aaa;
-  --green:#20c878;
+ --gold:#e9bd55;
+ --gold2:#ffdf8a;
+ --bg:#080808;
+ --panel:#151515;
+ --muted:#aaa;
+ --green:#20c878;
 }
 *{box-sizing:border-box}
 body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  color:#fff;
-  background:linear-gradient(145deg,#050505,#17130a,#050505);
-  min-height:100vh;
+ margin:0;
+ font-family:Arial,sans-serif;
+ color:#fff;
+ background:linear-gradient(145deg,#050505,#17130a,#050505);
+ min-height:100vh;
 }
 button,input,select{font:inherit}
+
 .welcome{
-  position:fixed;inset:0;z-index:20;
-  display:flex;align-items:center;justify-content:center;
-  text-align:center;
-  background:radial-gradient(circle,#30230b,#080808 70%);
-  transition:opacity .4s;
+ position:fixed;
+ inset:0;
+ z-index:20;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ text-align:center;
+ background:radial-gradient(circle,#30230b,#080808 70%);
+ transition:opacity .4s;
 }
 .welcome.hide{opacity:0;pointer-events:none}
+.welcome-content{padding:20px}
 .welcome img{
-  width:145px;height:145px;object-fit:cover;
-  border-radius:50%;border:3px solid var(--gold);
-  box-shadow:0 0 30px #d6a83c66;
+ width:145px;
+ height:145px;
+ object-fit:cover;
+ border-radius:50%;
+ border:3px solid var(--gold);
+ box-shadow:0 0 30px #d6a83c66;
 }
-.welcome h1{color:var(--gold);font-size:30px;margin:18px 0 8px}
-.welcome p{color:#ddd;letter-spacing:3px}
+.welcome h1{
+ color:var(--gold);
+ font-size:30px;
+ margin:18px 0 8px;
+}
+.welcome .managed{
+ color:#fff;
+ font-size:14px;
+ letter-spacing:2px;
+ margin:15px 0 6px;
+}
+.welcome .founder-name{
+ color:var(--gold2);
+ font-size:23px;
+ font-weight:bold;
+ margin:5px 0 13px;
+}
+.welcome p{
+ color:#ddd;
+ letter-spacing:3px;
+ font-size:12px;
+}
 .welcome small{color:var(--gold2)}
+
 header{
-  text-align:center;padding:22px 12px 14px;
-  border-bottom:1px solid #8c692a;
-  background:#090909;
+ text-align:center;
+ padding:22px 12px 14px;
+ border-bottom:1px solid #8c692a;
+ background:#090909;
 }
 .logo{
-  width:82px;height:82px;object-fit:cover;
-  border:2px solid var(--gold);border-radius:50%;
-  box-shadow:0 0 18px #e9bd5544;
+ width:82px;
+ height:82px;
+ object-fit:cover;
+ border:2px solid var(--gold);
+ border-radius:50%;
+ box-shadow:0 0 18px #e9bd5544;
 }
-header h1{color:var(--gold);margin:9px 0 4px;font-size:27px}
-header p{color:#ccc;margin:4px;font-size:12px;letter-spacing:2px}
+header h1{
+ color:var(--gold);
+ margin:9px 0 4px;
+ font-size:27px;
+}
+header p{
+ color:#ccc;
+ margin:4px;
+ font-size:12px;
+ letter-spacing:2px;
+}
 .founder{
-  margin:13px auto 0;max-width:500px;
-  padding:10px;border:1px solid #806126;
-  border-radius:12px;background:#17130b;
-  line-height:1.7;font-size:13px;
+ margin:13px auto 0;
+ max-width:500px;
+ padding:10px;
+ border:1px solid #806126;
+ border-radius:12px;
+ background:#17130b;
+ line-height:1.7;
+ font-size:13px;
 }
 .founder strong{color:var(--gold2)}
-main{max-width:600px;margin:20px auto;padding:0 14px 35px}
+
+main{
+ max-width:600px;
+ margin:20px auto;
+ padding:0 14px 35px;
+}
 .panel{
-  background:linear-gradient(145deg,#191919,#101010);
-  border:1px solid #705522;border-radius:17px;
-  padding:18px;margin-bottom:16px;
-  box-shadow:0 8px 25px #0008;
+ background:linear-gradient(145deg,#191919,#101010);
+ border:1px solid #705522;
+ border-radius:17px;
+ padding:18px;
+ margin-bottom:16px;
+ box-shadow:0 8px 25px #0008;
 }
-h2{font-size:18px;color:var(--gold);margin:0 0 14px}
-label{display:block;color:#ddd;font-size:13px;margin:13px 0 7px}
+h2{
+ font-size:18px;
+ color:var(--gold);
+ margin:0 0 14px;
+}
+label{
+ display:block;
+ color:#ddd;
+ font-size:13px;
+ margin:13px 0 7px;
+}
 input,select{
-  width:100%;padding:15px 13px;border-radius:10px;
-  border:1px solid #705522;background:#080808;
-  color:white;outline:none;
+ width:100%;
+ padding:15px 13px;
+ border-radius:10px;
+ border:1px solid #705522;
+ background:#080808;
+ color:white;
+ outline:none;
 }
-input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 8px #e9bd5544}
+input:focus,select:focus{
+ border-color:var(--gold);
+ box-shadow:0 0 8px #e9bd5544;
+}
 .platforms{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:8px;
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:8px;
 }
 .platform{
-  padding:12px 4px;border-radius:10px;
-  border:1px solid #705522;background:#111;
-  color:#fff;font-size:12px;cursor:pointer;
+ padding:12px 4px;
+ border-radius:10px;
+ border:1px solid #705522;
+ background:#111;
+ color:#fff;
+ font-size:12px;
+ cursor:pointer;
 }
-.platform.active{background:#4a3510;border-color:var(--gold);color:var(--gold2)}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.platform.active{
+ background:#4a3510;
+ border-color:var(--gold);
+ color:var(--gold2);
+}
+.row{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:10px;
+}
 .btn{
-  border:0;border-radius:10px;padding:15px;
-  font-weight:bold;cursor:pointer;width:100%;
+ border:0;
+ border-radius:10px;
+ padding:15px;
+ font-weight:bold;
+ cursor:pointer;
+ width:100%;
 }
 .primary{
-  background:linear-gradient(100deg,#b8862e,#ffe39a,#c39437);
-  color:#171006;
+ background:linear-gradient(100deg,#b8862e,#ffe39a,#c39437);
+ color:#171006;
 }
-.secondary{background:#292929;color:#fff;border:1px solid #8b682b}
-.buttons{display:grid;grid-template-columns:2fr 1fr;gap:10px;margin-top:17px}
+.secondary{
+ background:#292929;
+ color:#fff;
+ border:1px solid #8b682b;
+}
+.buttons{
+ display:grid;
+ grid-template-columns:2fr 1fr;
+ gap:10px;
+ margin-top:17px;
+}
+.btn:disabled{
+ opacity:.6;
+ cursor:not-allowed;
+}
 .status{
-  margin-top:15px;padding:12px;border-radius:10px;
-  background:#090909;border:1px solid #40351e;
-  color:#ddd;font-size:13px;line-height:1.6;
+ margin-top:15px;
+ padding:12px;
+ border-radius:10px;
+ background:#090909;
+ border:1px solid #40351e;
+ color:#ddd;
+ font-size:13px;
+ line-height:1.6;
 }
 .progress{
-  height:11px;background:#333;border-radius:20px;
-  overflow:hidden;margin-top:12px;
+ height:11px;
+ background:#333;
+ border-radius:20px;
+ overflow:hidden;
+ margin-top:12px;
 }
-.bar{height:100%;width:0%;background:linear-gradient(90deg,#b8862e,#ffe39a);transition:width .3s}
-.percent{color:var(--gold);font-weight:bold;margin-top:8px}
+.bar{
+ height:100%;
+ width:0%;
+ background:linear-gradient(90deg,#b8862e,#ffe39a);
+ transition:width .3s;
+}
+.percent{
+ color:var(--gold);
+ font-weight:bold;
+ margin-top:8px;
+}
 .ready{
-  display:none;margin-top:14px;padding:14px;
-  background:#10251a;border:1px solid #20c878;border-radius:10px;
+ display:none;
+ margin-top:14px;
+ padding:14px;
+ background:#10251a;
+ border:1px solid #20c878;
+ border-radius:10px;
 }
-.ready a{color:#71f0a9;font-weight:bold}
-.note{font-size:12px;color:#aaa;line-height:1.6}
-footer{text-align:center;color:#888;padding:20px;font-size:12px}
+.ready a{
+ color:#71f0a9;
+ font-weight:bold;
+}
+.note{
+ font-size:12px;
+ color:#aaa;
+ line-height:1.6;
+}
+footer{
+ text-align:center;
+ color:#888;
+ padding:20px;
+ font-size:12px;
+}
 footer strong{color:var(--gold)}
+
 @media(max-width:380px){
-  .platforms{grid-template-columns:repeat(2,1fr)}
-  header h1{font-size:23px}
+ .platforms{grid-template-columns:repeat(2,1fr)}
+ header h1{font-size:23px}
+ .welcome h1{font-size:25px}
+ .welcome .founder-name{font-size:20px}
 }
 </style>
 </head>
+
 <body>
 
+<!-- WELCOME PAGE -->
 <div class="welcome" id="welcome">
- <div>
+ <div class="welcome-content">
   <img src="IMG-20261101-WA0634.jpg" alt="King Cobra Logo">
+
   <h1>THE FAST COBRA</h1>
+
+  <div class="managed">BUILD MANAGED BY</div>
+
+  <div class="founder-name">AQIB JAVED تیلی</div>
+
   <p>PREMIUM DOWNLOADER 5.0</p>
   <small>POWER • SPEED • QUALITY</small>
  </div>
 </div>
 
+<!-- HEADER -->
 <header>
  <img class="logo" src="IMG-20261101-WA0634.jpg" alt="King Cobra">
+
  <h1>THE FAST COBRA</h1>
  <p>PREMIUM DOWNLOADER 5.0</p>
+
  <div class="founder">
   <strong>AQIB JAVED</strong><br>
   S/O MUHAMMAD YASEEN TELI<br>
@@ -142,13 +291,20 @@ footer strong{color:var(--gold)}
 </header>
 
 <main>
+
  <section class="panel">
   <h2>DOWNLOAD YOUR VIDEO</h2>
 
+  <!-- LINK BOX AT TOP -->
   <label for="url">PASTE VIDEO LINK HERE</label>
-  <input id="url" type="url" placeholder="Paste YouTube, Facebook, Instagram or TikTok link">
+  <input
+   id="url"
+   type="url"
+   placeholder="Paste YouTube, Facebook, Instagram or TikTok link"
+  >
 
   <label>SELECT PLATFORM</label>
+
   <div class="platforms">
    <button class="platform" data-platform="YouTube">YouTube</button>
    <button class="platform" data-platform="Facebook">Facebook</button>
@@ -164,6 +320,7 @@ footer strong{color:var(--gold)}
      <option value="mp3">MP3 Audio</option>
     </select>
    </div>
+
    <div>
     <label for="quality">VIDEO QUALITY</label>
     <select id="quality">
@@ -177,31 +334,52 @@ footer strong{color:var(--gold)}
   </div>
 
   <div class="buttons">
-   <button class="btn primary" id="downloadBtn">⬇ DOWNLOAD NOW</button>
-   <button class="btn secondary" id="resetBtn">RESET</button>
+   <button class="btn primary" id="downloadBtn">
+    ⬇ DOWNLOAD NOW
+   </button>
+   <button class="btn secondary" id="resetBtn">
+    RESET
+   </button>
   </div>
 
-  <div class="status" id="status">Ready! Paste your video link to start.</div>
-  <div class="progress"><div class="bar" id="bar"></div></div>
+  <div class="status" id="status">
+   Ready! Paste your video link to start.
+  </div>
+
+  <div class="progress">
+   <div class="bar" id="bar"></div>
+  </div>
+
   <div class="percent" id="percent">0%</div>
 
   <div class="ready" id="ready">
    <strong style="color:#71f0a9">DOWNLOAD READY!</strong>
    <p>Your file is ready.</p>
-   <a id="downloadLink" href="#" target="_blank" rel="noopener">DOWNLOAD FILE</a>
+   <a id="downloadLink" href="#" target="_blank" rel="noopener">
+    DOWNLOAD FILE
+   </a>
   </div>
  </section>
 
  <section class="panel">
   <h2>SUPPORTED PLATFORMS</h2>
-  <p class="note">YouTube • Facebook • Instagram • TikTok</p>
-  <p class="note">MP4 Video and MP3 Audio download options. Available quality depends on the original video and server support.</p>
+
+  <p class="note">
+   YouTube • Facebook • Instagram • TikTok
+  </p>
+
+  <p class="note">
+   MP4 Video and MP3 Audio download options.
+   Available quality depends on the original video and server support.
+  </p>
  </section>
+
 </main>
 
 <footer>
  <strong>THE FAST COBRA</strong><br>
  Premium Downloader 5.0<br>
+ BUILD MANAGED BY AQIB JAVED تیلی<br>
  © 2026 All Rights Reserved
 </footer>
 
@@ -219,20 +397,24 @@ const readyBox = document.getElementById("ready");
 const downloadLink = document.getElementById("downloadLink");
 const downloadBtn = document.getElementById("downloadBtn");
 
-let selectedPlatform = "";
 let busy = false;
 let pollTimer = null;
 
+/* WELCOME PAGE AUTO CLOSE AFTER 2 SECONDS */
 setTimeout(() => {
  welcome.classList.add("hide");
- setTimeout(() => welcome.style.display = "none", 450);
+ setTimeout(() => {
+  welcome.style.display = "none";
+ }, 450);
 }, 2000);
 
+/* PLATFORM SELECTION */
 document.querySelectorAll(".platform").forEach(button => {
  button.addEventListener("click", () => {
-  document.querySelectorAll(".platform").forEach(b => b.classList.remove("active"));
+  document.querySelectorAll(".platform").forEach(b => {
+   b.classList.remove("active");
+  });
   button.classList.add("active");
-  selectedPlatform = button.dataset.platform;
  });
 });
 
@@ -244,46 +426,79 @@ function resetDisplay(){
  bar.style.width = "0%";
  percent.textContent = "0%";
  readyBox.style.display = "none";
- if(pollTimer) clearTimeout(pollTimer);
+
+ if(pollTimer){
+  clearTimeout(pollTimer);
+  pollTimer = null;
+ }
 }
 
+/* RESET BUTTON */
 document.getElementById("resetBtn").addEventListener("click", () => {
  if(busy) return;
+
  urlInput.value = "";
  typeInput.value = "mp4";
  qualityInput.value = "best";
- selectedPlatform = "";
- document.querySelectorAll(".platform").forEach(b => b.classList.remove("active"));
+
+ document.querySelectorAll(".platform").forEach(b => {
+  b.classList.remove("active");
+ });
+
  resetDisplay();
  setStatus("Ready! Paste your video link to start.");
 });
 
+/* CHECK SERVER */
 async function checkHealth(){
  try{
   const response = await fetch(API + "/health");
-  if(!response.ok) throw new Error("Server unavailable");
+
+  if(!response.ok){
+   throw new Error("Server unavailable");
+  }
+
   setStatus("Server ONLINE • Ready to download");
- }catch(e){
+
+ }catch(error){
   setStatus("Server connection could not be checked. You can still try again.");
  }
 }
+
 checkHealth();
 
+/* PLATFORM DETECTION */
 function detectPlatform(url){
  const u = url.toLowerCase();
- if(u.includes("youtube.com") || u.includes("youtu.be")) return "YouTube";
- if(u.includes("facebook.com") || u.includes("fb.watch")) return "Facebook";
- if(u.includes("instagram.com")) return "Instagram";
- if(u.includes("tiktok.com")) return "TikTok";
+
+ if(u.includes("youtube.com") || u.includes("youtu.be")){
+  return "YouTube";
+ }
+
+ if(u.includes("facebook.com") || u.includes("fb.watch")){
+  return "Facebook";
+ }
+
+ if(u.includes("instagram.com")){
+  return "Instagram";
+ }
+
+ if(u.includes("tiktok.com")){
+  return "TikTok";
+ }
+
  return "";
 }
 
+/* DOWNLOAD BUTTON */
 downloadBtn.addEventListener("click", startDownload);
 
 async function startDownload(){
+
  if(busy) return;
 
  const url = urlInput.value.trim();
+
  if(!url){
   setStatus("Please paste a video link first.");
   urlInput.focus();
@@ -292,12 +507,13 @@ async function startDownload(){
 
  try{
   new URL(url);
- }catch(e){
+ }catch(error){
   setStatus("Please enter a valid video link.");
   return;
  }
 
  const platform = detectPlatform(url);
+
  if(!platform){
   setStatus("This platform is not supported by this downloader.");
   return;
@@ -306,13 +522,17 @@ async function startDownload(){
  busy = true;
  downloadBtn.disabled = true;
  downloadBtn.textContent = "PLEASE WAIT...";
+
  resetDisplay();
  setStatus("Connecting to server...");
 
  try{
+
   const response = await fetch(API + "/api/download", {
    method:"POST",
-   headers:{"Content-Type":"application/json"},
+   headers:{
+    "Content-Type":"application/json"
+   },
    body:JSON.stringify({
     url:url,
     quality:qualityInput.value,
@@ -323,19 +543,25 @@ async function startDownload(){
   const data = await response.json();
 
   if(!response.ok || data.error){
-   throw new Error(data.error || data.message || "Download request failed.");
+   throw new Error(
+    data.error || data.message || "Download request failed."
+   );
   }
 
   const jobId = data.job_id || data.id;
+
   if(!jobId){
+
    if(data.download_url || data.url){
     showReady(data.download_url || data.url);
     return;
    }
+
    throw new Error("Server did not return a download job ID.");
   }
 
   setStatus(platform + " link accepted. Download processing...");
+
   pollStatus(jobId);
 
  }catch(error){
@@ -344,14 +570,28 @@ async function startDownload(){
  }
 }
 
+/* CHECK DOWNLOAD STATUS */
 async function pollStatus(jobId){
+
  try{
-  const response = await fetch(API + "/api/status/" + encodeURIComponent(jobId));
+
+  const response = await fetch(
+   API + "/api/status/" + encodeURIComponent(jobId)
+  );
+
   const data = await response.json();
 
-  if(!response.ok) throw new Error(data.error || "Could not check download status.");
+  if(!response.ok){
+   throw new Error(
+    data.error || "Could not check download status."
+   );
+  }
 
-  const progress = Math.max(0, Math.min(100, Number(data.progress || 0)));
+  const progress = Math.max(
+   0,
+   Math.min(100, Number(data.progress || 0))
+  );
+
   bar.style.width = progress + "%";
   percent.textContent = progress + "%";
 
@@ -362,38 +602,64 @@ async function pollStatus(jobId){
    return;
   }
 
-  if(state === "completed" || state === "complete" || state === "finished" || state === "success" || state === "done"){
-   showReady(API + "/api/file/" + encodeURIComponent(jobId));
+  if(
+   state === "completed" ||
+   state === "complete" ||
+   state === "finished" ||
+   state === "success" ||
+   state === "done"
+  ){
+   showReady(
+    API + "/api/file/" + encodeURIComponent(jobId)
+   );
    return;
   }
 
   if(state === "error" || state === "failed"){
-   throw new Error(data.error || data.message || "Download failed.");
+   throw new Error(
+    data.error || data.message || "Download failed."
+   );
   }
 
-  setStatus(data.message || data.status || "Processing your download...");
-  pollTimer = setTimeout(() => pollStatus(jobId), 2000);
+  setStatus(
+   data.message || data.status || "Processing your download..."
+  );
+
+  pollTimer = setTimeout(() => {
+   pollStatus(jobId);
+  }, 2000);
 
  }catch(error){
+
   setStatus("Error: " + error.message);
   finishButton();
+
  }
 }
 
+/* DOWNLOAD READY */
 function showReady(fileUrl){
+
  bar.style.width = "100%";
  percent.textContent = "100%";
+
  downloadLink.href = fileUrl;
  readyBox.style.display = "block";
+
  setStatus("Your download is ready!");
+
  finishButton();
 }
 
+/* RESTORE BUTTON */
 function finishButton(){
+
  busy = false;
  downloadBtn.disabled = false;
  downloadBtn.textContent = "⬇ DOWNLOAD NOW";
+
 }
 </script>
+
 </body>
 </html>
