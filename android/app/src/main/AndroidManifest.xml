@@ -7,6 +7,8 @@
     <application
         android:allowBackup="false"
         android:label="THE FAST COBRA"
+        android:icon="@drawable/cobra_icon"
+        android:roundIcon="@drawable/cobra_icon"
         android:usesCleartextTraffic="false"
         android:theme="@android:style/Theme.Material.Light.NoActionBar">
 
@@ -20,6 +22,5 @@
             </intent-filter>
 
         </activity>
-
     </application>
 </manifest>
