@@ -1,4 +1,3 @@
-
 package com.fastcobra.downloader;
 
 import android.app.Activity;
@@ -20,7 +19,7 @@ public class MainActivity extends Activity {
     private WebView webView;
 
     private static final String WEBSITE =
-        "https://shaikhmuhajir12.github.io/The-fast-Cobra-/";
+        "https://thecobradeveloper.github.io/The-fast-Cobra-/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,4 +108,3 @@ public class MainActivity extends Activity {
         }
     }
 }
-
