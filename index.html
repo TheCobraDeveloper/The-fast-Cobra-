@@ -6,6 +6,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="theme-color" content="#080808">
 <meta name="description" content="The Fast Cobra Premium Video Downloader">
+
+<!-- GOOGLE SEARCH CONSOLE VERIFICATION -->
+<meta name="google-site-verification" content="KnX2JmTM3rTi5WO8jym0iOysZ9wj6jndNvMxTCYJuko" />
+
 <title>The Fast Cobra Downloader 5.0</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -418,7 +422,7 @@ async function apiRequest(path,options={}){
  return data;
 }
 
-/* FIXED: API returns status "online", not "ok" */
+/* API returns status "online", not only "ok" */
 async function checkApi(){
  try{
   const data = await apiRequest("/health");
