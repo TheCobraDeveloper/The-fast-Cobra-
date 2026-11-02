@@ -22,11 +22,8 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
- margin:0;
- color:#fff;
- font-family:'Cairo',sans-serif;
- background:
- radial-gradient(ellipse at 50% 0%,#49300c 0%,transparent 42%),
+ margin:0;color:#fff;font-family:'Cairo',sans-serif;
+ background:radial-gradient(ellipse at 50% 0%,#49300c 0%,transparent 42%),
  linear-gradient(#080808,#090909 65%,#120d03);
  min-height:100vh;
 }
@@ -38,413 +35,184 @@ button{cursor:pointer}
  box-shadow:0 0 12px #ffb51f;
 }
 header{
- position:relative;
- overflow:hidden;
- padding:22px 12px 18px;
- text-align:center;
- border-bottom:1px solid #88601d;
+ position:relative;overflow:hidden;padding:22px 12px 18px;
+ text-align:center;border-bottom:1px solid #88601d;
  background:linear-gradient(110deg,#080808,#1b1205,#080808);
 }
 .header-inner{
- max-width:900px;
- margin:auto;
- display:flex;
- align-items:center;
- justify-content:center;
- gap:20px;
- flex-wrap:wrap;
+ max-width:900px;margin:auto;display:flex;align-items:center;
+ justify-content:center;gap:20px;flex-wrap:wrap;
 }
 .logo-frame{
- width:145px;
- height:145px;
- flex:0 0 145px;
- border:3px solid var(--gold);
- border-radius:50%;
- padding:4px;
- background:#080808;
- box-shadow:0 0 20px #e5a52c99,0 0 45px #b77b1b44;
+ width:145px;height:145px;flex:0 0 145px;
+ border:3px solid var(--gold);border-radius:50%;padding:4px;
+ background:#080808;box-shadow:0 0 20px #e5a52c99,0 0 45px #b77b1b44;
  overflow:hidden;
 }
-.logo-frame img{
- width:100%;
- height:100%;
- object-fit:cover;
- border-radius:50%;
-}
+.logo-frame img{width:100%;height:100%;object-fit:cover;border-radius:50%}
 .brand-area{max-width:570px}
 .brand{
- color:var(--gold);
- font-size:clamp(27px,6vw,48px);
- line-height:1.2;
- font-weight:900;
+ color:var(--gold);font-size:clamp(27px,6vw,48px);
+ line-height:1.2;font-weight:900;
  text-shadow:0 0 15px #d58e19,2px 3px 2px #000;
 }
 .premium{
- font-size:clamp(13px,3vw,20px);
- color:#fff;
- font-weight:900;
- letter-spacing:2px;
- margin-top:7px;
+ font-size:clamp(13px,3vw,20px);color:#fff;
+ font-weight:900;letter-spacing:2px;margin-top:7px;
 }
 .premium span{color:var(--gold)}
 .founder{
- max-width:440px;
- margin:17px auto 0;
- padding:11px 15px;
- border:2px solid #b7862b;
- border-radius:15px;
+ max-width:440px;margin:17px auto 0;padding:11px 15px;
+ border:2px solid #b7862b;border-radius:15px;
  background:linear-gradient(110deg,#211605,#080808,#211605);
  box-shadow:0 0 17px #b47c1c55,inset 0 0 12px #bd861d22;
 }
 .founder-name{
- display:block;
- color:var(--gold2);
- font-size:clamp(22px,5vw,30px);
- font-weight:900;
- letter-spacing:1px;
- text-shadow:0 0 12px #e3a72d66;
+ display:block;color:var(--gold2);font-size:clamp(22px,5vw,30px);
+ font-weight:900;letter-spacing:1px;text-shadow:0 0 12px #e3a72d66;
 }
-.founder-son{
- display:block;
- font-size:13px;
- font-weight:800;
- color:white;
- direction:ltr;
-}
+.founder-son{display:block;font-size:13px;font-weight:800;color:white;direction:ltr}
 .founder-role{
- display:inline-block;
- margin-top:7px;
- padding:4px 22px;
- border-radius:20px;
- color:#211500;
- font-size:14px;
- font-weight:900;
+ display:inline-block;margin-top:7px;padding:4px 22px;border-radius:20px;
+ color:#211500;font-size:14px;font-weight:900;
  background:linear-gradient(90deg,#bd841d,#fff0a0,#bd841d);
  box-shadow:0 0 12px #d99c28;
 }
 .api-badge{
- display:inline-flex;
- align-items:center;
- gap:8px;
- margin-top:12px;
- padding:6px 18px;
- border:1px solid #168f4d;
- border-radius:30px;
- color:#58f49b;
- background:#071c10;
- font-size:12px;
- font-weight:800;
+ display:inline-flex;align-items:center;gap:8px;margin-top:12px;
+ padding:6px 18px;border:1px solid #168f4d;border-radius:30px;
+ color:#58f49b;background:#071c10;font-size:12px;font-weight:800;
 }
 .api-dot{
- width:9px;height:9px;border-radius:50%;
- background:#28e978;
+ width:9px;height:9px;border-radius:50%;background:#28e978;
  box-shadow:0 0 10px #28e978;
 }
-.container{
- width:min(96%,760px);
- margin:24px auto;
-}
+.container{width:min(96%,760px);margin:24px auto}
 .welcome{
- position:relative;
- text-align:center;
- padding:13px 8px;
- margin:0 0 20px;
- border:2px solid #dba32f;
- border-radius:50px;
+ text-align:center;padding:13px 8px;margin:0 0 20px;
+ border:2px solid #dba32f;border-radius:50px;
  background:linear-gradient(90deg,#090909,#281a05,#090909);
  box-shadow:0 0 15px #d89d2c66,inset 0 0 12px #b57c1b33;
 }
-.welcome h1{
- margin:0;
- color:#fff;
- font-size:clamp(19px,4.5vw,30px);
- font-weight:900;
-}
+.welcome h1{margin:0;color:#fff;font-size:clamp(19px,4.5vw,30px);font-weight:900}
 .welcome h1 span{color:var(--gold)}
-.intro{
- text-align:center;
- color:#eee;
- font-size:15px;
- margin:15px 0;
-}
-.platforms{
- display:grid;
- grid-template-columns:repeat(4,1fr);
- gap:10px;
- margin:17px 0 20px;
-}
+.intro{text-align:center;color:#eee;font-size:15px;margin:15px 0}
+.platforms{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:17px 0 20px}
 .platform{
- min-width:0;
- border-radius:12px;
- padding:10px 3px;
- text-align:center;
- font-size:13px;
- font-weight:900;
- color:white;
- text-decoration:none;
- box-shadow:0 4px 12px #0008;
- border:1px solid #ffffff44;
+ min-width:0;border-radius:12px;padding:10px 3px;text-align:center;
+ font-size:13px;font-weight:900;color:white;text-decoration:none;
+ box-shadow:0 4px 12px #0008;border:1px solid #ffffff44;
 }
-.platform .symbol{
- display:block;
- font-size:24px;
- line-height:1.3;
-}
+.platform .symbol{display:block;font-size:24px;line-height:1.3}
 .youtube{background:linear-gradient(135deg,#ff1717,#a50000)}
 .facebook{background:linear-gradient(135deg,#2588ff,#003eaa)}
 .instagram{background:linear-gradient(135deg,#ffb000,#ed1685,#7622c9)}
 .tiktok{background:linear-gradient(135deg,#222,#050505);border-color:#666}
 .panel{
- border:2px solid #d69b25;
- border-radius:23px;
- padding:18px;
+ border:2px solid #d69b25;border-radius:23px;padding:18px;
  background:linear-gradient(145deg,#17130b,#090909 55%,#171109);
  box-shadow:0 0 17px #d4972b77,inset 0 0 20px #b67c2022;
 }
 .field{margin-bottom:13px}
-.label{
- display:block;
- color:var(--gold2);
- font-size:16px;
- font-weight:900;
- margin:0 0 7px;
-}
+.label{display:block;color:var(--gold2);font-size:16px;font-weight:900;margin:0 0 7px}
 .input-wrap{position:relative}
 input,select{
- width:100%;
- min-height:51px;
- border:1px solid #777;
- border-radius:14px;
- padding:11px 14px;
- background:#090909;
- color:white;
- outline:none;
- font-size:15px;
+ width:100%;min-height:51px;border:1px solid #777;border-radius:14px;
+ padding:11px 14px;background:#090909;color:white;outline:none;font-size:15px;
 }
-input{
- direction:ltr;
- text-align:left;
- padding-right:48px;
-}
-input:focus,select:focus{
- border-color:var(--gold);
- box-shadow:0 0 10px #d69b2b66;
-}
+input{direction:ltr;text-align:left;padding-right:48px}
+input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 10px #d69b2b66}
 .copy-btn{
- position:absolute;
- right:7px;
- top:7px;
- width:37px;
- height:37px;
- padding:0;
- border:1px solid #b58a36;
- border-radius:9px;
- background:#241b0a;
- color:var(--gold);
- font-size:19px;
+ position:absolute;right:7px;top:7px;width:37px;height:37px;padding:0;
+ border:1px solid #b58a36;border-radius:9px;background:#241b0a;
+ color:var(--gold);font-size:19px;
 }
-.select-grid{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:13px;
-}
+.select-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
 .select-box{
- padding:12px;
- border:2px solid #b77c1e;
- border-radius:17px;
+ padding:12px;border:2px solid #b77c1e;border-radius:17px;
  background:linear-gradient(140deg,#211807,#090909);
  box-shadow:0 0 12px #b77c1e44;
 }
 .select-box .label{font-size:15px}
-.action-grid{
- display:grid;
- grid-template-columns:1.5fr .85fr;
- gap:12px;
- margin-top:15px;
-}
-.action{
- min-height:61px;
- border-radius:16px;
- font-size:clamp(15px,3.5vw,21px);
- font-weight:900;
-}
+.action-grid{display:grid;grid-template-columns:1.5fr .85fr;gap:12px;margin-top:15px}
+.action{min-height:61px;border-radius:16px;font-size:clamp(15px,3.5vw,21px);font-weight:900}
 .download-btn{
- border:2px solid #ffe08a;
- color:#1b1100;
+ border:2px solid #ffe08a;color:#1b1100;
  background:linear-gradient(110deg,#bd811c,#ffe38b,#d69a2b);
  box-shadow:0 0 15px #d69a2b88,inset 0 2px 3px #fff8;
 }
 .download-btn:disabled{opacity:.55;cursor:not-allowed}
 .reset-btn{
- border:2px solid #999;
- color:white;
- background:linear-gradient(#333,#090909);
+ border:2px solid #999;color:white;background:linear-gradient(#333,#090909);
  box-shadow:0 0 10px #7775;
 }
 .status-box{
- display:none;
- margin-top:18px;
- padding:17px;
- border:2px solid #b78327;
- border-radius:18px;
- background:linear-gradient(110deg,#061207,#080808,#061207);
+ display:none;margin-top:18px;padding:17px;border:2px solid #b78327;
+ border-radius:18px;background:linear-gradient(110deg,#061207,#080808,#061207);
  box-shadow:0 0 15px #b17b2555;
 }
-.status-head{
- display:flex;
- align-items:center;
- justify-content:space-between;
- gap:10px;
-}
-.status-title{
- color:#39ed75;
- font-size:clamp(17px,4vw,24px);
- font-weight:900;
-}
+.status-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.status-title{color:#39ed75;font-size:clamp(17px,4vw,24px);font-weight:900}
 .status-desc{color:var(--gold2);font-size:14px}
-.percent{
- color:#38ed7b;
- font-size:25px;
- font-weight:900;
- direction:ltr;
- text-align:center;
-}
+.percent{color:#38ed7b;font-size:25px;font-weight:900;direction:ltr;text-align:center}
 .completed{color:#38ed7b;font-size:13px;text-align:center}
-.progress-track{
- height:12px;
- border-radius:20px;
- overflow:hidden;
- background:#303030;
- margin:13px 0 7px;
-}
+.progress-track{height:12px;border-radius:20px;overflow:hidden;background:#303030;margin:13px 0 7px}
 .progress-bar{
- height:100%;
- width:0%;
- border-radius:20px;
+ height:100%;width:0%;border-radius:20px;
  background:linear-gradient(90deg,#12a84c,#5aff9c,#fff);
- box-shadow:0 0 12px #32ef77;
- transition:width .4s ease;
+ box-shadow:0 0 12px #32ef77;transition:width .4s ease;
 }
-.progress-info{
- display:flex;
- justify-content:space-between;
- color:#ccc;
- font-size:11px;
- direction:ltr;
-}
-.result-title{
- color:#ddd;
- font-size:13px;
- margin-top:10px;
- overflow-wrap:anywhere;
-}
+.progress-info{display:flex;justify-content:space-between;color:#ccc;font-size:11px;direction:ltr}
+.result-title{color:#ddd;font-size:13px;margin-top:10px;overflow-wrap:anywhere}
 .file-btn{
- display:block;
- width:100%;
- margin-top:13px;
- padding:13px 8px;
- text-align:center;
- text-decoration:none;
- border-radius:12px;
- border:2px solid #ffe08a;
- color:#1a1000;
- background:linear-gradient(90deg,#c88b20,#ffe28a,#c88b20);
- font-size:16px;
- font-weight:900;
+ display:block;width:100%;margin-top:13px;padding:13px 8px;text-align:center;
+ text-decoration:none;border-radius:12px;border:2px solid #ffe08a;
+ color:#1a1000;background:linear-gradient(90deg,#c88b20,#ffe28a,#c88b20);
+ font-size:16px;font-weight:900;
 }
 .file-btn:active{transform:scale(.98)}
-.message{
- margin-top:10px;
- font-size:13px;
- line-height:1.9;
- overflow-wrap:anywhere;
-}
+.message{margin-top:10px;font-size:13px;line-height:1.9;overflow-wrap:anywhere}
 .error{color:#ff7777}
 .success{color:#4aff91}
-.note{
- text-align:center;
- color:#ddd;
- font-size:12px;
- line-height:2;
- padding:13px 8px;
-}
-.features{
- display:grid;
- grid-template-columns:repeat(6,1fr);
- gap:9px;
- margin-top:15px;
-}
+.note{text-align:center;color:#ddd;font-size:12px;line-height:2;padding:13px 8px}
+.features{display:grid;grid-template-columns:repeat(6,1fr);gap:9px;margin-top:15px}
 .feature{
- text-align:center;
- padding:11px 4px;
- border:2px solid #bd8424;
- border-radius:14px;
+ text-align:center;padding:11px 4px;border:2px solid #bd8424;border-radius:14px;
  background:linear-gradient(145deg,#1c1508,#080808);
- box-shadow:0 0 9px #b77c1e55;
- font-size:11px;
- line-height:1.4;
+ box-shadow:0 0 9px #b77c1e55;font-size:11px;line-height:1.4;
 }
-.feature .ico{
- display:block;
- font-size:25px;
- color:var(--gold);
-}
+.feature .ico{display:block;font-size:25px;color:var(--gold)}
 footer{
- text-align:center;
- padding:24px 10px 35px;
- border-top:2px solid #7f5a20;
- color:#ddd;
- font-size:12px;
- line-height:2;
+ text-align:center;padding:24px 10px 35px;border-top:2px solid #7f5a20;
+ color:#ddd;font-size:12px;line-height:2;
 }
 footer strong{color:var(--gold)}
 .footer-name{font-size:15px;color:var(--gold2);font-weight:900}
 .footer-decoration{color:var(--gold);font-size:20px}
 .small-note{color:#999;font-size:10px}
 .welcome-screen{
- position:fixed;
- inset:0;
- z-index:1000;
- display:flex;
- align-items:center;
- justify-content:center;
- padding:20px;
- background:
- radial-gradient(ellipse at center,#49300d 0%,#0a0804 55%,#000 100%);
+ position:fixed;inset:0;z-index:1000;display:flex;align-items:center;
+ justify-content:center;padding:20px;
+ background:radial-gradient(ellipse at center,#49300d 0%,#0a0804 55%,#000 100%);
  transition:opacity .6s,visibility .6s;
 }
 .welcome-screen.hide{opacity:0;visibility:hidden;pointer-events:none}
 .welcome-card{
- width:min(100%,480px);
- text-align:center;
- padding:25px 18px;
- border:2px solid var(--gold);
- border-radius:25px;
+ width:min(100%,480px);text-align:center;padding:25px 18px;
+ border:2px solid var(--gold);border-radius:25px;
  background:linear-gradient(145deg,#211705,#080808);
  box-shadow:0 0 35px #d99a2b88;
 }
 .welcome-card img{
- width:125px;height:125px;
- border:3px solid var(--gold);
- border-radius:50%;
- object-fit:cover;
- box-shadow:0 0 25px #e4a52c88;
+ width:125px;height:125px;border:3px solid var(--gold);border-radius:50%;
+ object-fit:cover;box-shadow:0 0 25px #e4a52c88;
 }
-.welcome-card h1{
- color:var(--gold);
- font-size:clamp(23px,6vw,34px);
- margin:13px 0 3px;
- font-weight:900;
-}
+.welcome-card h1{color:var(--gold);font-size:clamp(23px,6vw,34px);margin:13px 0 3px;font-weight:900}
 .welcome-card p{color:#eee;font-size:13px}
 .enter-btn{
- padding:13px 35px;
- border:2px solid #ffe5a0;
- border-radius:13px;
+ padding:13px 35px;border:2px solid #ffe5a0;border-radius:13px;
  background:linear-gradient(90deg,#bd841d,#ffe28a,#bd841d);
- color:#1a1000;
- font-size:16px;
- font-weight:900;
+ color:#1a1000;font-size:16px;font-weight:900;
 }
 @media(max-width:520px){
  .header-inner{gap:10px}
@@ -460,7 +228,6 @@ footer strong{color:var(--gold)}
 }
 </style>
 </head>
-
 <body>
 
 <div class="welcome-screen" id="welcomeScreen">
@@ -480,56 +247,39 @@ footer strong{color:var(--gold)}
 </div>
 
 <div class="gold-line"></div>
-
 <header>
  <div class="header-inner">
-  <div class="logo-frame">
-   <img src="IMG-20261101-WA0634.jpg" alt="King Cobra">
-  </div>
+  <div class="logo-frame"><img src="IMG-20261101-WA0634.jpg" alt="King Cobra"></div>
   <div class="brand-area">
    <div class="brand">🐍 THE FAST COBRA</div>
    <div class="premium">PREMIUM DOWNLOADER <span>5.0</span></div>
    <div style="color:#ffe4a0;font-size:12px;margin-top:5px">DOWNLOAD FASTER • LIVE SMARTER</div>
   </div>
  </div>
-
  <div class="founder">
   <span class="founder-name">AQIB JAVED</span>
   <span class="founder-son">S/O MUHAMMAD YASEEN TELI</span>
   <span class="founder-role">★ FOUNDER &amp; ADMIN ★</span>
  </div>
-
  <div class="api-badge">
-  <span class="api-dot"></span>
-  <span id="apiStatus">API CHECKING...</span>
+  <span class="api-dot"></span><span id="apiStatus">API CHECKING...</span>
  </div>
 </header>
 
 <main class="container">
-
  <section class="welcome">
   <h1><span>Welcome to</span> The Fast Cobra Downloader</h1>
  </section>
-
  <div class="intro">اپنا ویڈیو لنک درج کریں اور اپنی پسند کا فارمیٹ منتخب کریں</div>
 
  <div class="platforms">
-  <a class="platform youtube" href="https://www.youtube.com/" target="_blank" rel="noopener">
-   <span class="symbol">▶</span>YouTube
-  </a>
-  <a class="platform facebook" href="https://www.facebook.com/" target="_blank" rel="noopener">
-   <span class="symbol">f</span>Facebook
-  </a>
-  <a class="platform instagram" href="https://www.instagram.com/" target="_blank" rel="noopener">
-   <span class="symbol">◎</span>Instagram
-  </a>
-  <a class="platform tiktok" href="https://www.tiktok.com/" target="_blank" rel="noopener">
-   <span class="symbol">♪</span>TikTok
-  </a>
+  <a class="platform youtube" href="https://www.youtube.com/" target="_blank" rel="noopener"><span class="symbol">▶</span>YouTube</a>
+  <a class="platform facebook" href="https://www.facebook.com/" target="_blank" rel="noopener"><span class="symbol">f</span>Facebook</a>
+  <a class="platform instagram" href="https://www.instagram.com/" target="_blank" rel="noopener"><span class="symbol">◎</span>Instagram</a>
+  <a class="platform tiktok" href="https://www.tiktok.com/" target="_blank" rel="noopener"><span class="symbol">♪</span>TikTok</a>
  </div>
 
  <section class="panel">
-
   <div class="field">
    <label class="label" for="videoUrl">🔗 ویڈیو کا لنک</label>
    <div class="input-wrap">
@@ -574,12 +324,9 @@ footer strong{color:var(--gold)}
      <div class="completed" id="completed">Processing</div>
     </div>
    </div>
-   <div class="progress-track">
-    <div class="progress-bar" id="progressBar"></div>
-   </div>
+   <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
    <div class="progress-info">
-    <span id="progressLabel">0%</span>
-    <span id="speedLabel">Waiting...</span>
+    <span id="progressLabel">0%</span><span id="speedLabel">Waiting...</span>
    </div>
    <div class="result-title" id="resultTitle"></div>
    <div id="resultArea"></div>
@@ -601,7 +348,6 @@ footer strong{color:var(--gold)}
   <div class="feature"><span class="ico">▥</span>Live<br>Progress</div>
   <div class="feature"><span class="ico">🔒</span>HTTPS<br>Connection</div>
  </section>
-
 </main>
 
 <footer>
@@ -613,15 +359,13 @@ footer strong{color:var(--gold)}
  <div class="footer-decoration">✦ ━━━━━━━━━ ✦</div>
  <div class="small-note">Powered by Fast Cobra API</div>
 </footer>
-
 <div class="gold-line"></div>
 
 <script>
 "use strict";
 
-/* EXISTING ENZONIC API - DO NOT CHANGE */
+/* EXISTING ENZONIC API */
 const API_BASE = "https://fastcobra.enzonic.dev";
-
 const el = id => document.getElementById(id);
 
 const videoUrl = el("videoUrl");
@@ -659,9 +403,7 @@ function safeUrl(value){
  try{
   const u = new URL(value);
   return (u.protocol==="https:" || u.protocol==="http:") && !!u.hostname;
- }catch(e){
-  return false;
- }
+ }catch(e){return false}
 }
 
 async function apiRequest(path,options={}){
@@ -676,10 +418,12 @@ async function apiRequest(path,options={}){
  return data;
 }
 
+/* FIXED: API returns status "online", not "ok" */
 async function checkApi(){
  try{
   const data = await apiRequest("/health");
-  if(data.status!=="ok") throw new Error("API not ready");
+  const state = String(data.status || "").toLowerCase();
+  if(state!=="ok" && state!=="online") throw new Error("API not ready");
   el("apiStatus").textContent = "API ONLINE";
   el("apiStatus").style.color = "#58f49b";
  }catch(e){
@@ -698,28 +442,15 @@ function setBusy(value){
 async function pasteLink(){
  try{
   const text = await navigator.clipboard.readText();
-  if(text){
-   videoUrl.value = text.trim();
-   videoUrl.focus();
-  }else{
-   alert("Clipboard میں کوئی لنک موجود نہیں۔");
-  }
- }catch(e){
-  alert("Clipboard اجازت نہیں ملی۔ لنک خود Paste کریں۔");
- }
+  if(text){videoUrl.value=text.trim();videoUrl.focus()}
+  else{alert("Clipboard میں کوئی لنک موجود نہیں۔")}
+ }catch(e){alert("Clipboard اجازت نہیں ملی۔ لنک خود Paste کریں۔")}
 }
 
 function addDownloadLink(jobId,data){
  resultArea.replaceChildren();
-
- let path = data.download_url || ("/api/file/"+encodeURIComponent(jobId));
- let finalUrl;
-
- try{
-  finalUrl = new URL(path,API_BASE).href;
- }catch(e){
-  throw new Error("Download link is invalid.");
- }
+ const path = data.download_url || ("/api/file/"+encodeURIComponent(jobId));
+ const finalUrl = new URL(path,API_BASE).href;
 
  const link = document.createElement("a");
  link.href = finalUrl;
@@ -740,7 +471,6 @@ async function monitorJob(jobId){
 
  for(let i=0;i<maxAttempts;i++){
   if(pollController && pollController.signal.aborted) return;
-
   await new Promise(resolve=>setTimeout(resolve,2500));
 
   const data = await apiRequest(
@@ -781,18 +511,14 @@ async function monitorJob(jobId){
   if(data.speed){
    details += " • Speed: "+(data.speed/1048576).toFixed(2)+" MB/s";
   }
-  if(data.eta){
-   details += " • ETA: "+data.eta+"s";
-  }
+  if(data.eta){details += " • ETA: "+data.eta+"s"}
   speedLabel.textContent = details || "Working...";
  }
-
  throw new Error("سرور سے جواب آنے میں بہت وقت لگ گیا۔ دوبارہ کوشش کریں۔");
 }
 
 async function startDownload(){
  const now = Date.now();
-
  if(busy || now-lastRequestTime<1000) return;
  lastRequestTime = now;
 
@@ -802,13 +528,11 @@ async function startDownload(){
 
  if(!url){
   alert("براہ کرم ویڈیو لنک درج کریں۔");
-  videoUrl.focus();
-  return;
+  videoUrl.focus();return;
  }
  if(!safeUrl(url)){
   alert("براہ کرم درست HTTP یا HTTPS لنک درج کریں۔");
-  videoUrl.focus();
-  return;
+  videoUrl.focus();return;
  }
 
  if(pollController) pollController.abort();
@@ -836,9 +560,7 @@ async function startDownload(){
    signal:pollController.signal
   });
 
-  if(!data.job_id){
-   throw new Error("سرور نے Job ID فراہم نہیں کی۔");
-  }
+  if(!data.job_id) throw new Error("سرور نے Job ID فراہم نہیں کی۔");
 
   showStatus("DOWNLOAD STARTED","سرور آپ کی فائل تیار کر رہا ہے۔",5);
   await monitorJob(data.job_id);
@@ -850,7 +572,6 @@ async function startDownload(){
   speedLabel.textContent = "Error";
   statusMessage.className = "message error";
   statusMessage.textContent = e.message || "Unknown error";
-
  }finally{
   setBusy(false);
  }
